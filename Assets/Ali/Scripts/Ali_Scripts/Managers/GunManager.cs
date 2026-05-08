@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class GunManager : MonoBehaviour
 {
     // this script will handle the our guns slots system and active the right gun
+    // and it will be conected to the TelphoneMenu to swap guns  
     public static GunManager instance {  get; private set; }
 
     [Header("New Guns")]
@@ -23,30 +24,14 @@ public class GunManager : MonoBehaviour
    [SerializeField] private GameObject[] slots_UI = new GameObject[2]; // for the ui we will set them both at the same time
 
 
-    [Header("Guns")]
-    [SerializeField] private GameObject gun1;
-    [SerializeField] private GameObject gun1_ui;
-    [Header("Guns UI")]
-    [SerializeField] private GameObject gun2;
-    [SerializeField] private GameObject gun2_ui;
-    // we give id numbers to the guns
-    // dulepistol will be 1 , Rifle 2 and shotgun 3 
+   
 
 
     private void Awake()
     {
-
         instance = this;
     }
-    private void Start()
-    {
-       
-    }
-
-    private void Update()
-    {
-        
-    }
+  
 
     private void HandleGunSwaping()
     {
