@@ -7,8 +7,10 @@ public class GunManager : MonoBehaviour
     // this script will handle the our guns slots system and active the right gun
     public GunManager instance {  get; private set; }
 
-    
-   
+    [Header("Guns")]
+    [SerializeField] private GameManger pistol;
+    [SerializeField] private GameManger rifle;
+    [SerializeField] private GameManger shotGun;
 
 
     [Header("Slots")]
@@ -104,7 +106,7 @@ public class GunManager : MonoBehaviour
         {
             if(slot == null)
             {
-                
+                slot = pistol;
             }
         }
     }
