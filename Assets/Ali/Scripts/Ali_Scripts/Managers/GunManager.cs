@@ -5,17 +5,22 @@ using UnityEngine.InputSystem;
 public class GunManager : MonoBehaviour
 {
     // this script will handle the our guns slots system and active the right gun
-    public GunManager instance {  get; private set; }
+    public static GunManager instance {  get; private set; }
 
-    [Header("Guns")]
+    [Header("New Guns")]
     [SerializeField] private GameObject pistol;
     [SerializeField] private GameObject rifle;
     [SerializeField] private GameObject shotGun;
 
+    [SerializeField] private GameObject pistol_ui;
+    [SerializeField] private GameObject rifle_ui;
+    [SerializeField] private GameObject shotGun_ui;
+
+
 
     [Header("Slots")]
-    private GameObject[] slots = new GameObject[2];// for the guns
-    private GameObject[] slots_UI = new GameObject[2]; // for the ui we will set them both at the same time
+   [SerializeField] private GameObject[] slots = new GameObject[2];// for the guns
+   [SerializeField] private GameObject[] slots_UI = new GameObject[2]; // for the ui we will set them both at the same time
 
 
     [Header("Guns")]
@@ -30,16 +35,12 @@ public class GunManager : MonoBehaviour
 
     private void Awake()
     {
-        slots[0] = gun1;
-        slots[1] = gun2;
 
-        slots_UI[0] = gun1_ui;
-        slots_UI[1] = gun2_ui;
+        instance = this;
     }
     private void Start()
     {
-        slots[0].SetActive(true);
-        slots_UI[0].SetActive(true);
+       
     }
 
     private void Update()
@@ -49,26 +50,8 @@ public class GunManager : MonoBehaviour
 
     private void HandleGunSwaping()
     {
-       /* switch(gunNum)
-        {
-            case 1:
-                dulePistol.gameObject.SetActive(true);
-                ammoAmount_dulePistol.SetActive(true);
-
-                rifle.gameObject.SetActive(false); 
-                ammoAmount_rifle.SetActive(false);
-
-                break;
-                case 2:
-                dulePistol.gameObject.SetActive(false);
-                ammoAmount_dulePistol.SetActive(false);
-
-                rifle.gameObject.SetActive(true);
-                ammoAmount_rifle.SetActive(true);
-                break;
-
-       */// }
-        if (slots[0].gameObject.activeInHierarchy)
+       
+        if ( slots[0] != null && slots[0].gameObject.activeInHierarchy)
         {
             slots[0].gameObject.SetActive(false);
             slots_UI[0].gameObject.SetActive(false);
@@ -77,7 +60,7 @@ public class GunManager : MonoBehaviour
             slots_UI[1].gameObject.SetActive(true);
 
         }
-        else if (slots[1].gameObject.activeInHierarchy)
+        else if (slots[1] != null && slots[1].gameObject.activeInHierarchy)
         {
             slots[0].gameObject.SetActive(true);
             slots_UI[0].gameObject.SetActive(true);
@@ -102,19 +85,75 @@ public class GunManager : MonoBehaviour
 
     public void AddpistolToSlot()
     {
-       if(slots[0].gameObject== null)
+       for(int i = 0; i < slots.Length; i++)
         {
-            slots[0] = pistol;
+            if (slots[i] == null)
+            {
+                slots[i] = pistol;
+                slots_UI[i] = pistol_ui;
+
+                slots[0].gameObject.SetActive(true);
+                slots_UI[0].gameObject.SetActive(true);
+
+                return;
+            }
         }
-       else if (slots[1].gameObject== null)
-        {
-            slots[1] = pistol;
-        }
-        else
-        {
             Debug.Log("you dont have space");
-        }
+        
     }
 
+    public void AddRifleToSlot()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+            {
+                slots[i] = rifle;
+                slots_UI[i] = rifle_ui;
 
+                slots[0].gameObject.SetActive(true);
+                slots_UI[0].gameObject.SetActive(true);
+
+
+                return;
+            }
+        }
+        Debug.Log("you dont have space");
+
+    }
+    public void AddShotgunToSlot()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] == null)
+            {
+                slots[i] = shotGun;
+                slots_UI[i] = shotGun_ui;
+
+                slots[0].gameObject.SetActive(true);
+                slots_UI[0].gameObject.SetActive(true);
+
+
+                return;
+            }
+        }
+        Debug.Log("you dont have space");
+
+    }
+
+    public void RemoveGunsFromSlots()
+    {
+        for(int i = 0;i < slots.Length; i++)
+        {
+            if (slots[i] != null)
+            {
+                slots[i].gameObject.SetActive(false);
+                slots_UI[i].gameObject.SetActive(false);
+
+
+                slots[i] = null;
+                slots_UI[i] = null;
+            }
+        }
+    }
 }

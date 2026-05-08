@@ -221,6 +221,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Telphone",
+            "id": "f47b5169-0ba8-4f44-874a-450a8076bd2c",
+            "actions": [
+                {
+                    "name": "QuitMenu",
+                    "type": "Button",
+                    "id": "4dba9c36-d01a-4939-8cc6-a6360f20f454",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7445583d-d062-4ee6-a46b-d633dfc9d2d6",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "QuitMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

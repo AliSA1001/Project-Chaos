@@ -1,9 +1,10 @@
 using MoreMountains.Feedbacks;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MasterGun : MonoBehaviour
+public class Shotgun : MonoBehaviour
 {
     [Header("Connections")]
     // 'protected' means the Child (Shotgun) can see this, but other scripts cannot.
@@ -28,6 +29,16 @@ public class MasterGun : MonoBehaviour
     [Header("hitscan")]
     [SerializeField] LayerMask hitLayers;
 
+
+    [Header("Swaping System")]
+    [SerializeField] private bool isEquiepd;
+    [SerializeField] private int slotNumber;
+
+
+
+    [Header("TMP REF HERE")]
+    [SerializeField] private TMP_Text text_Ammo;
+
     // Timer to track when we can shoot again
     protected float nextFireTime;
 
@@ -40,9 +51,9 @@ public class MasterGun : MonoBehaviour
 
     public void Start()
     {
-       
+
         gunAnimator = GetComponent<Animator>();
-       if (maincam == null)
+        if (maincam == null)
         {
             maincam = Camera.main.transform;
         }
@@ -52,11 +63,13 @@ public class MasterGun : MonoBehaviour
     public void Update()
     {
         HandleShooting();
+
+        text_Ammo.text = gunAmmo.ToString();
     }
 
     protected virtual void HandleShooting()
     {
-        if (attackTrigger && nextFireTime <= Time.time )
+        if (attackTrigger && nextFireTime <= Time.time)
         {
 
             shotFeedback.PlayFeedbacks();
@@ -70,7 +83,7 @@ public class MasterGun : MonoBehaviour
 
                 if (damageable != null)
                 {
-                  damageable.TakeDamage(gunDamage);
+                    damageable.TakeDamage(gunDamage);
                 }
                 StartCoroutine(HandleTrail(gunRaycastInfo));
             }
@@ -151,17 +164,16 @@ public class MasterGun : MonoBehaviour
 
     public virtual void OnAttack(InputAction.CallbackContext context)
     {
-       
-        if(context.started)
+
+        if (context.started)
         {
             attackTrigger = true;
 
         }
-        else if(context.canceled)
+        else if (context.canceled)
         {
             attackTrigger = false;
         }
     }
-
 
 }

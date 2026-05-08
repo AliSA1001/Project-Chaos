@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pistol : MasterGun
+public class Pistol : Shotgun
 {
     protected override void Recoil()
     {
