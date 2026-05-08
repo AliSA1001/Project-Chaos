@@ -355,14 +355,42 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3011675083807035350, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cfcf6c68f3c454d4b97bfcd48b2533fb, type: 2}
+    - target: {fileID: -2836185990498511354, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
+    - target: {fileID: 298507157331528330, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cfcf6c68f3c454d4b97bfcd48b2533fb, type: 2}
     - target: {fileID: 919132149155446097, guid: b2b9257fe00538248a502a7077302215, type: 3}
       propertyPath: m_Name
       value: GUN (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 997429727324153041, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
+    - target: {fileID: 2007746418466066569, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
+    - target: {fileID: 3859912177990552910, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
     - target: {fileID: 4311514775028298988, guid: b2b9257fe00538248a502a7077302215, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4809081573910498672, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1117,14 +1145,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3011675083807035350, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cfcf6c68f3c454d4b97bfcd48b2533fb, type: 2}
+    - target: {fileID: -2836185990498511354, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
+    - target: {fileID: 260642679876098581, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
+    - target: {fileID: 298507157331528330, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cfcf6c68f3c454d4b97bfcd48b2533fb, type: 2}
     - target: {fileID: 919132149155446097, guid: b2b9257fe00538248a502a7077302215, type: 3}
       propertyPath: m_Name
       value: GUN (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 997429727324153041, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
+    - target: {fileID: 2007746418466066569, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
+    - target: {fileID: 3859912177990552910, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
     - target: {fileID: 4311514775028298988, guid: b2b9257fe00538248a502a7077302215, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4809081573910498672, guid: b2b9257fe00538248a502a7077302215, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 276d1854a17ae0f4881ee8c9b6e72d6b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1283,7 +1343,7 @@ PrefabInstance:
       objectReference: {fileID: 83053116}
     - target: {fileID: 4691778883720645467, guid: f719b5f6b496cfe4ba8b0ceed345631b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5306906394280343227, guid: f719b5f6b496cfe4ba8b0ceed345631b, type: 3}
       propertyPath: text_Ammo
