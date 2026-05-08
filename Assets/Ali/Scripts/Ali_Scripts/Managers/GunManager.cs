@@ -8,9 +8,9 @@ public class GunManager : MonoBehaviour
     public GunManager instance {  get; private set; }
 
     [Header("Guns")]
-    [SerializeField] private GameManger pistol;
-    [SerializeField] private GameManger rifle;
-    [SerializeField] private GameManger shotGun;
+    [SerializeField] private GameObject pistol;
+    [SerializeField] private GameObject rifle;
+    [SerializeField] private GameObject shotGun;
 
 
     [Header("Slots")]
@@ -102,12 +102,17 @@ public class GunManager : MonoBehaviour
 
     public void AddpistolToSlot()
     {
-        foreach (var slot in slots)
+       if(slots[0].gameObject== null)
         {
-            if(slot == null)
-            {
-                slot = pistol;
-            }
+            slots[0] = pistol;
+        }
+       else if (slots[1].gameObject== null)
+        {
+            slots[1] = pistol;
+        }
+        else
+        {
+            Debug.Log("you dont have space");
         }
     }
 

@@ -12625,6 +12625,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f091ace18aca89f4183a744e90b45084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunManager
+  pistol: {fileID: 0}
+  rifle: {fileID: 0}
+  shotGun: {fileID: 0}
   gun1: {fileID: 662232298}
   gun1_ui: {fileID: 648734868}
   gun2: {fileID: 1792921650}
@@ -12727,7 +12730,7 @@ MonoBehaviour:
     m_ActionName: 'PlayerController/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 790320c1-df31-4459-8304-8c79f2d1ae3d
+  m_DefaultActionMap: Guns
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1349345343
@@ -14389,13 +14392,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1319055097}
+        m_TargetAssemblyTypeName: GunManager, Assembly-CSharp
+        m_MethodName: AddpistolToSlot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
