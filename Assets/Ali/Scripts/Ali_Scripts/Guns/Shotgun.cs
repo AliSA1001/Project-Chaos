@@ -1,4 +1,5 @@
 using MoreMountains.Feedbacks;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Shotgun : MonoBehaviour
     // 'protected' means the Child (Shotgun) can see this, but other scripts cannot.
     [SerializeField] protected RaycastHit gunRaycastInfo;
     [SerializeField] private Transform maincam;
+    private FpController player;
 
     [Header("Stats")]
     [SerializeField] protected float gunRange = 100f;
@@ -57,6 +59,7 @@ public class Shotgun : MonoBehaviour
         {
             maincam = Camera.main.transform;
         }
+        player = FpController.instance;
 
     }
 
@@ -64,7 +67,23 @@ public class Shotgun : MonoBehaviour
     {
         HandleShooting();
 
+        HandleAnmationSprinting();
+        
+
+
         text_Ammo.text = gunAmmo.ToString();
+    }
+
+    private void HandleAnmationSprinting()
+    {
+        if(player.moveSpeed >= 7)
+        {
+            gunAnimator.SetBool("sprinting", true);
+        }
+        else
+        {
+            gunAnimator.SetBool("sprinting", false);
+        }
     }
 
     protected virtual void HandleShooting()
@@ -73,7 +92,7 @@ public class Shotgun : MonoBehaviour
         {
 
             shotFeedback.PlayFeedbacks();
-            Recoil();
+            gunAnimator.SetTrigger("Attacking");
 
             muzzleEffect.Play();
 
