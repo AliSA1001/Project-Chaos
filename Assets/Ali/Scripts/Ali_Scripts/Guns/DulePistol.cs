@@ -1,4 +1,5 @@
 using MoreMountains.Feedbacks;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class DulePistol : MonoBehaviour
     // 'protected' means the Child (Shotgun) can see this, but other scripts cannot.
     [SerializeField] protected RaycastHit gunRaycastInfo;
     [SerializeField] private Transform maincam;
+    private FpController player;
+
 
     [Header("Stats")]
     [SerializeField] protected float gunRange = 100f;
@@ -17,6 +20,8 @@ public class DulePistol : MonoBehaviour
     [SerializeField] protected float fireRate = 0.5f;
     [SerializeField] protected float bulletSpeed = 50f;
     [SerializeField] protected int gunAmmo = 999;
+    [SerializeField] private int maxAmmo;
+
 
     [Header("Visuals")]
     [SerializeField] protected ParticleSystem muzzleEffect;
@@ -50,19 +55,35 @@ public class DulePistol : MonoBehaviour
     public void Start()
     {
 
-        gunAnimator = GetComponent<Animator>();
         if (maincam == null)
         {
             maincam = Camera.main.transform;
         }
+        player = FpController.instance;
+
 
     }
 
     public void Update()
     {
         HandleShooting();
+
+        HandleAnmationSprinting();
+
         text_Ammo.text = gunAmmo.ToString();
 
+    }
+
+    private void HandleAnmationSprinting()
+    {
+        if (player.moveSpeed >= 7)
+        {
+            gunAnimator.SetBool("Moving", true);
+        }
+        else
+        {
+            gunAnimator.SetBool("Moving", false);
+        }
     }
 
     protected virtual void HandleShooting()
@@ -71,7 +92,6 @@ public class DulePistol : MonoBehaviour
         {
             
             shotFeedback.PlayFeedbacks();
-            Recoil();
 
             muzzleEffect.Play();
 
