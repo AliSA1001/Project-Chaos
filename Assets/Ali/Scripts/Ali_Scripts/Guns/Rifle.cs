@@ -19,6 +19,7 @@ public class Rifle : MonoBehaviour
     [SerializeField] protected float fireRate = 0.5f;
     [SerializeField] protected float bulletSpeed = 50f;
     [SerializeField] protected int gunAmmo = 999;
+    [SerializeField] private int maxAmmo = 80;
 
     [Header("Visuals")]
     [SerializeField] protected ParticleSystem muzzleEffect;
@@ -49,7 +50,7 @@ public class Rifle : MonoBehaviour
     protected bool attackTrigger;
 
     //feedback
-    [SerializeField] private MMF_Player shotFeedback;
+    [SerializeField] private MMF_Player reloadFeedBack;
 
     public void Start()
     {
@@ -83,34 +84,41 @@ public class Rifle : MonoBehaviour
             gunAnimator.SetBool("Moving", false);
         }
     }
+    private void HandleReload()
+    {
+        gunAmmo = maxAmmo;
+    }
 
     protected virtual void HandleShooting()
     {
         if (attackTrigger && nextFireTime <= Time.time)
         {
-
-            shotFeedback.PlayFeedbacks();
-
-            if (HandleHitScan(out gunRaycastInfo))
+            if (gunAmmo <= 0)
             {
-                IDamgeable damageable = gunRaycastInfo.collider.GetComponent<IDamgeable>();
-
-                if (damageable != null)
-                {
-                    damageable.TakeDamage(gunDamage);
-                }
-                StartCoroutine(HandleTrail(gunRaycastInfo));
+                gunAnimator.SetTrigger("Reloding");
+                reloadFeedBack.PlayFeedbacks();
             }
             else
             {
-                StartCoroutine(HandleLostTrail());// if we didnt hit anything in the range of the gun 
-            }
-            gunAmmo--;
-            nextFireTime = Time.time + fireRate;
-        }
-        else
-        {
 
+
+                if (HandleHitScan(out gunRaycastInfo))
+                {
+                    IDamgeable damageable = gunRaycastInfo.collider.GetComponent<IDamgeable>();
+
+                    if (damageable != null)
+                    {
+                        damageable.TakeDamage(gunDamage);
+                    }
+                    StartCoroutine(HandleTrail(gunRaycastInfo));
+                }
+                else
+                {
+                    StartCoroutine(HandleLostTrail());// if we didnt hit anything in the range of the gun 
+                }
+                gunAmmo--;
+                nextFireTime = Time.time + fireRate;
+            }
         }
     }
 
@@ -197,5 +205,14 @@ public class Rifle : MonoBehaviour
 
         }
         
+    }
+    public void OnReload(InputAction.CallbackContext context)
+    {
+        if (context.started && gunAmmo < maxAmmo)
+        {
+            gunAnimator.SetTrigger("Reloding");
+            reloadFeedBack.PlayFeedbacks();
+
+        }
     }
 }

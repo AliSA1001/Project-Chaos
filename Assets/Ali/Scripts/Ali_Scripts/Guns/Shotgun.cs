@@ -49,7 +49,8 @@ public class Shotgun : MonoBehaviour
     //input button
     protected bool attackTrigger;
 
-    //feedback
+    [Header("Feedbacks")]
+    [SerializeField] private MMF_Player reloadFeedback;
     [SerializeField] private MMF_Player shotFeedback;
 
     public void Start()
@@ -97,14 +98,15 @@ public class Shotgun : MonoBehaviour
         {
             if (gunAmmo <= 0)
             {
-                gunAnimator.SetTrigger("Reloading");
+                //gunAnimator.SetTrigger("Reloading");
+               // reloadFeedback.PlayFeedbacks();
+
             }
             else
             {
-                shotFeedback.PlayFeedbacks();
                 gunAnimator.SetTrigger("Attacking");
 
-                muzzleEffect.Play();
+                shotFeedback.PlayFeedbacks();
 
                 if (HandleHitScan(out gunRaycastInfo))
                 {
@@ -211,6 +213,8 @@ public class Shotgun : MonoBehaviour
         if(context.started && gunAmmo < maxAmmo)
         {
             gunAnimator.SetTrigger("Reloading");
+            reloadFeedback.PlayFeedbacks();
+
         }
     }
 }
