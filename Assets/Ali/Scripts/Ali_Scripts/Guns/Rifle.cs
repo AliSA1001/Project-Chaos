@@ -11,6 +11,7 @@ public class Rifle : MonoBehaviour
     // 'protected' means the Child (Shotgun) can see this, but other scripts cannot.
     [SerializeField] protected RaycastHit gunRaycastInfo;
     [SerializeField] private Transform maincam;
+    private FpController player;
 
     [Header("Stats")]
     [SerializeField] protected float gunRange = 100f;
@@ -52,7 +53,7 @@ public class Rifle : MonoBehaviour
 
     public void Start()
     {
-
+       player = FpController.instance;
         gunAnimator = GetComponent<Animator>();
         if (maincam == null)
         {
@@ -64,8 +65,23 @@ public class Rifle : MonoBehaviour
     public void Update()
     {
         HandleShooting();
+        HandleAnmationSprinting();
+
+
 
         text_Ammo.text = gunAmmo.ToString();
+    }
+
+    private void HandleAnmationSprinting()
+    {
+        if (player.moveSpeed >= 7)
+        {
+            gunAnimator.SetBool("Moving", true);
+        }
+        else
+        {
+            gunAnimator.SetBool("Moving", false);
+        }
     }
 
     protected virtual void HandleShooting()
@@ -74,9 +90,6 @@ public class Rifle : MonoBehaviour
         {
 
             shotFeedback.PlayFeedbacks();
-            Recoil();
-
-            muzzleEffect.Play();
 
             if (HandleHitScan(out gunRaycastInfo))
             {
@@ -94,6 +107,10 @@ public class Rifle : MonoBehaviour
             }
             gunAmmo--;
             nextFireTime = Time.time + fireRate;
+        }
+        else
+        {
+
         }
     }
 
@@ -169,11 +186,16 @@ public class Rifle : MonoBehaviour
         if (context.started)
         {
             attackTrigger = true;
+            gunAnimator.SetBool("Shooting", true);
+
 
         }
         else if (context.canceled)
         {
             attackTrigger = false;
+            gunAnimator.SetBool("Shooting", false);
+
         }
+        
     }
 }

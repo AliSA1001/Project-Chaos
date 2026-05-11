@@ -85,55 +85,70 @@ public class DulePistol : MonoBehaviour
             gunAnimator.SetBool("Moving", false);
         }
     }
+    private void HandleReload()
+    {
+        gunAmmo = maxAmmo;
+    }
 
     protected virtual void HandleShooting()
     {
         if (attackTrigger && nextFireTime <= Time.time)
         {
-            
-            shotFeedback.PlayFeedbacks();
-
-            muzzleEffect.Play();
-
-            if (HandleHitScan(out gunRaycastInfo))
+            if (gunAmmo <= 0)
             {
-                IDamgeable damageable = gunRaycastInfo.collider.GetComponent<IDamgeable>();
-
-                if (damageable != null)
-                {
-                    damageable.TakeDamage(gunDamage);
-                }
-                StartCoroutine(HandleTrail(gunRaycastInfo));
-                if (isPoint1)
-                {
-                    currentTrailSpawnPoint = trailSpawnPoint2;
-                    isPoint1 = false;
-                }
-                else if (!isPoint1)
-                {
-                    currentTrailSpawnPoint = trailSpawnPoint1;
-                    isPoint1 = true;
-                }
+                gunAnimator.SetTrigger("Reloading");
             }
             else
             {
-                StartCoroutine(HandleLostTrail());// if we didnt hit anything in the range of the gun 
                 if (isPoint1)
                 {
-                    currentTrailSpawnPoint = trailSpawnPoint2;
-                    isPoint1 = false;
+                    gunAnimator.SetTrigger("Shooting1");
                 }
-                else if (!isPoint1)
+                else
                 {
-                    currentTrailSpawnPoint = trailSpawnPoint1;
-                    isPoint1 = true;
+                    gunAnimator.SetTrigger("Shooting2");
                 }
+                if (HandleHitScan(out gunRaycastInfo))
+                {
+                    IDamgeable damageable = gunRaycastInfo.collider.GetComponent<IDamgeable>();
+
+                    if (damageable != null)
+                    {
+                        damageable.TakeDamage(gunDamage);
+                    }
+                    StartCoroutine(HandleTrail(gunRaycastInfo));
+                    if (isPoint1)
+                    {
+                        currentTrailSpawnPoint = trailSpawnPoint2;
+                        isPoint1 = false;
+                    }
+                    else if (!isPoint1)
+                    {
+                        currentTrailSpawnPoint = trailSpawnPoint1;
+                        isPoint1 = true;
+                    }
+                }
+                else
+                {
+                    StartCoroutine(HandleLostTrail());// if we didnt hit anything in the range of the gun 
+                    if (isPoint1)
+                    {
+                        currentTrailSpawnPoint = trailSpawnPoint2;
+                        isPoint1 = false;
+                    }
+                    else if (!isPoint1)
+                    {
+                        currentTrailSpawnPoint = trailSpawnPoint1;
+                        isPoint1 = true;
+                    }
+                }
+                gunAmmo--;
+                nextFireTime = Time.time + fireRate;
             }
-            gunAmmo--;
-            nextFireTime = Time.time + fireRate;
         }
         
     }
+   
 
 
     // protected virtual IEnumerator Flashmuzzle()
@@ -212,6 +227,14 @@ public class DulePistol : MonoBehaviour
         else if (context.canceled)
         {
             attackTrigger = false;
+        }
+    }
+    public void OnReload(InputAction.CallbackContext context)
+    {
+        if (context.started && gunAmmo < maxAmmo)
+        {
+            gunAnimator.SetTrigger("Reloading");
+
         }
     }
 }
