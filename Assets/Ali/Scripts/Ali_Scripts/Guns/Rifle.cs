@@ -49,8 +49,10 @@ public class Rifle : MonoBehaviour
     //input button
     protected bool attackTrigger;
 
-    //feedback
-    [SerializeField] private MMF_Player reloadFeedBack;
+
+    [Header("Feedbacks")]
+    [SerializeField] private MMF_Player reloadFeedback;
+    [SerializeField] private MMF_Player ShootFeedback;
 
     public void Start()
     {
@@ -95,12 +97,10 @@ public class Rifle : MonoBehaviour
         {
             if (gunAmmo <= 0)
             {
-                gunAnimator.SetTrigger("Reloding");
-                reloadFeedBack.PlayFeedbacks();
             }
             else
             {
-
+                ShootFeedback.PlayFeedbacks();
 
                 if (HandleHitScan(out gunRaycastInfo))
                 {
@@ -211,7 +211,7 @@ public class Rifle : MonoBehaviour
         if (context.started && gunAmmo < maxAmmo)
         {
             gunAnimator.SetTrigger("Reloding");
-            reloadFeedBack.PlayFeedbacks();
+            reloadFeedback.PlayFeedbacks();
 
         }
     }

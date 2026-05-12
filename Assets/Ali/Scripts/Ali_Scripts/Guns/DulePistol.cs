@@ -49,8 +49,9 @@ public class DulePistol : MonoBehaviour
     //input button
     protected bool attackTrigger;
 
-    //feedback
-    [SerializeField] private MMF_Player shotFeedback;
+    [Header("Feedbacks")]
+    [SerializeField] private MMF_Player reloadFeedback;
+    [SerializeField] private MMF_Player ShootFeedback;
 
     public void Start()
     {
@@ -96,10 +97,11 @@ public class DulePistol : MonoBehaviour
         {
             if (gunAmmo <= 0)
             {
-                gunAnimator.SetTrigger("Reloading");
             }
             else
             {
+
+                ShootFeedback.PlayFeedbacks();
                 if (isPoint1)
                 {
                     gunAnimator.SetTrigger("Shooting1");
@@ -234,6 +236,7 @@ public class DulePistol : MonoBehaviour
         if (context.started && gunAmmo < maxAmmo)
         {
             gunAnimator.SetTrigger("Reloading");
+            reloadFeedback.PlayFeedbacks();
 
         }
     }
