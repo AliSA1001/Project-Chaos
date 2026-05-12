@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class ScoreManager : MonoBehaviour
 
 
     [SerializeField] private TMP_Text scoreNumber;
+    [SerializeField] private GameObject hitMarakerUI;
+    private bool isHitMarkerActive;
     
 
 
@@ -31,10 +34,19 @@ public class ScoreManager : MonoBehaviour
     public void AddHitScore(int amount)
     {
         score += amount;
+        Invoke("RemoveHitmarker", 0.5f);
     }
     public void AddKillScore(int amount)
     {
         score += amount;
+        Invoke("RemoveHitmarker", 0.5f);
     }
+
+
+    private void RemoveHitmarker()
+    {
+        hitMarakerUI.SetActive(false);
+    }
+
 
 }

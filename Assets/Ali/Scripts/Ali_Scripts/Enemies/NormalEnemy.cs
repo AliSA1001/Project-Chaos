@@ -1,11 +1,17 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NormalEnemy : MonoBehaviour , IDamgeable
+public class NormalEnemy : MonoBehaviour, IDamgeable
 {
     [SerializeField] private float enemyHp;
     [SerializeField] private Transform playerPOS;
+
+
+    [Header("Effect")]
+    [SerializeField] private AudioSource hitmarkerSound;
+    [SerializeField] private GameObject hitmarker;
 
     [Header("Score Amount")]
     [SerializeField] private int hitAmount = 10;
@@ -38,6 +44,9 @@ public class NormalEnemy : MonoBehaviour , IDamgeable
 
     public void TakeDamage(float amount)
     {
+        hitmarkerSound.Play();
+        hitmarker.SetActive(true);
+        Invoke("RemoveHitmarker", 0.5f);
         enemyHp -= amount;
         if (enemyHp <= 0)
         {
@@ -48,8 +57,16 @@ public class NormalEnemy : MonoBehaviour , IDamgeable
         {
             scoreManager.AddHitScore(hitAmount);
         }
+
+        
     }
 
+    private void RemoveHitmarker()
+    {
+        hitmarker.SetActive(false);
+    }
+   
+    
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject == playerInstance.gameObject)
