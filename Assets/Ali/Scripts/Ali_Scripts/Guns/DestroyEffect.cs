@@ -15,6 +15,6 @@ public class DestroyEffect : MonoBehaviour
 
     private void destroySelf()
     {
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }
