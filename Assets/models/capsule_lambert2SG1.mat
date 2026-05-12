@@ -25,7 +25,7 @@ Material:
   - MOTIONVECTORS
   - DepthOnly
   - SHADOWCASTER
-  m_LockedProperties: 
+  m_LockedProperties: _Smoothness
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -122,8 +122,8 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 0.7673756, g: 0.9685765, b: 0.66518503, a: 0.17000002}
-    - _Color: {r: 0.7673755, g: 0.9685765, b: 0.66518503, a: 0.17000002}
+    - _BaseColor: {r: 0.47138664, g: 0.9339623, b: 0.6331085, a: 0.8156863}
+    - _Color: {r: 0.4713866, g: 0.9339623, b: 0.63310844, a: 0.8156863}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

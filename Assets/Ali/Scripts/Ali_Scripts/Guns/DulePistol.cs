@@ -52,6 +52,8 @@ public class DulePistol : MonoBehaviour
     [Header("Feedbacks")]
     [SerializeField] private MMF_Player reloadFeedback;
     [SerializeField] private MMF_Player ShootFeedback;
+    [SerializeField] private MMF_Player ShootFeedback0;
+
 
     public void Start()
     {
@@ -101,14 +103,16 @@ public class DulePistol : MonoBehaviour
             else
             {
 
-                ShootFeedback.PlayFeedbacks();
                 if (isPoint1)
                 {
                     gunAnimator.SetTrigger("Shooting1");
+                    ShootFeedback.PlayFeedbacks();
                 }
                 else
                 {
                     gunAnimator.SetTrigger("Shooting2");
+                    ShootFeedback0.PlayFeedbacks();
+
                 }
                 if (HandleHitScan(out gunRaycastInfo))
                 {
