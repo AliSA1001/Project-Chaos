@@ -3,23 +3,35 @@ using UnityEngine.Timeline;
 
 public class SpawnEffectManager : MonoBehaviour
 {
-    public static SpawnEffectManager Instance;
+    public static SpawnEffectManager Instance {  get; private set; }
 
+    private FpController player;
+    
 
     [SerializeField] private GameObject bloodBlast;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private AudioSource hitMarkerSound;
-   // [SerializeField] private AudioSource enemyDeathSound;
+
+
+    [Header("TransformPos")]
+    [SerializeField] private Transform map0;
+    [SerializeField] private Transform map1;
+    [SerializeField] private Transform map2;
+    private int currentMap = 0;
 
     private void Awake()
     {
         Instance = this;
     }
 
+    private void Start()
+    {
+        player = FpController.instance;
+    }
+
     public void SpawnBloodBlastEffect(Transform bloodSpawn)
     {
         Instantiate(bloodBlast , bloodSpawn.position, bloodSpawn.rotation);
-     //   enemyDeathSound.Play();
     }
 
     public void AddHitMarkerEffect()
@@ -32,5 +44,28 @@ public class SpawnEffectManager : MonoBehaviour
     private void RemoveHitmarker()
     {
         hitMarker.SetActive(false);
+    }
+
+
+    public void TelportPlayer()
+    {
+        switch(currentMap)
+        {
+            case 0:
+                player.transform.position = map1.position;
+                currentMap = 1;
+                break;
+
+            case 1:
+                player.transform.position = map2.position;
+                currentMap = 2;
+                break;
+
+            case 2:
+                player.transform.position = map0.position;
+                currentMap = 0;
+                break;
+
+        }
     }
 }
