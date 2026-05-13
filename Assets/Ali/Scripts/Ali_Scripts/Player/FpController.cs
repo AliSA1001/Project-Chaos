@@ -278,7 +278,7 @@ public class FpController : MonoBehaviour
             }
             else
             {
-                Debug.Log("didnt work lil bro");
+               
             }
         }
       

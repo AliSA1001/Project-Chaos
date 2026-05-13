@@ -14,10 +14,14 @@ public class Portal : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject == player.gameObject)
+       
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("player good");
+        if (other.CompareTag("Player"))
         {
-
+            spawnEffectManager.TelportPlayer();
         }
     }
-
 }
