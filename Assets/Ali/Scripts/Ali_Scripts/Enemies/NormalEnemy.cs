@@ -6,12 +6,8 @@ using UnityEngine.AI;
 public class NormalEnemy : MonoBehaviour, IDamgeable
 {
     [SerializeField] private float enemyHp;
-    [SerializeField] private Transform playerPOS;
+   [SerializeField] private Transform playerPOS;
 
-
-    [Header("Effect")]
-    [SerializeField] private AudioSource hitmarkerSound;
-    [SerializeField] private GameObject hitmarker;
 
     [Header("Score Amount")]
     [SerializeField] private int hitAmount = 10;
@@ -21,6 +17,7 @@ public class NormalEnemy : MonoBehaviour, IDamgeable
     private Stats staInstance;
     private FpController playerInstance;
     private ScoreManager scoreManager;
+    private SpawnEffectManager spawnEffectManager;
 
     private void Awake()
     {
@@ -31,6 +28,9 @@ public class NormalEnemy : MonoBehaviour, IDamgeable
         staInstance = Stats.instance;
         playerInstance = FpController.instance;
         scoreManager = ScoreManager.instance;
+        spawnEffectManager = SpawnEffectManager.Instance;
+
+        playerPOS = playerInstance.gameObject.transform;
     }
 
 
@@ -44,13 +44,12 @@ public class NormalEnemy : MonoBehaviour, IDamgeable
 
     public void TakeDamage(float amount)
     {
-        hitmarkerSound.Play();
-        hitmarker.SetActive(true);
-        Invoke("RemoveHitmarker", 0.5f);
+        spawnEffectManager.AddHitMarkerEffect();
         enemyHp -= amount;
         if (enemyHp <= 0)
         {
             scoreManager.AddKillScore(killAmount);
+            spawnEffectManager.SpawnBloodBlastEffect(gameObject.transform);
             Destroy(gameObject);
         }
         else
@@ -58,13 +57,9 @@ public class NormalEnemy : MonoBehaviour, IDamgeable
             scoreManager.AddHitScore(hitAmount);
         }
 
-        
     }
 
-    private void RemoveHitmarker()
-    {
-        hitmarker.SetActive(false);
-    }
+  
    
     
     private void OnTriggerStay(Collider other)
