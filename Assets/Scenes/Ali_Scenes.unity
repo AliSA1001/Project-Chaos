@@ -1787,6 +1787,21 @@ MonoBehaviour:
   map1: {fileID: 49331325}
   map2: {fileID: 1584984098}
   telportFeedback: {fileID: 2126107811}
+  enemiesType:
+  - {fileID: 1700876697302410094, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
+  - {fileID: 9046149467239562205, guid: f171f71ba93c6074185fe482c2623b5d, type: 3}
+  map0Points:
+  - {fileID: 1471380563}
+  - {fileID: 49331325}
+  - {fileID: 1584984098}
+  map1Points:
+  - {fileID: 1471380563}
+  - {fileID: 49331325}
+  - {fileID: 1584984098}
+  map2Points:
+  - {fileID: 1471380563}
+  - {fileID: 49331325}
+  - {fileID: 1584984098}
 --- !u!1 &1471380562
 GameObject:
   m_ObjectHideFlags: 0
@@ -5524,7 +5539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8692890380976197520, guid: 7c0fd1dc33b427c4e9980b6317985021, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

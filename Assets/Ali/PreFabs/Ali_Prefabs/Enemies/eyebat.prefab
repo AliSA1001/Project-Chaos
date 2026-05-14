@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 9155453095756842412}
   m_Layer: 0
   m_Name: eyebat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
   player: {fileID: 0}
   hp: 100
-  speed: 7
+  speed: 1
   stopDistance: 2
   hitAmount: 10
   killAmount: 100

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8424320995917762341}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,8 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
   enemyHp: 100
   playerPOS: {fileID: 0}
-  hitmarkerSound: {fileID: 0}
-  hitmarker: {fileID: 0}
   hitAmount: 10
   killAmount: 100
 --- !u!195 &5408387461070275903

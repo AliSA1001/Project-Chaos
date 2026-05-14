@@ -4,10 +4,10 @@ using UnityEngine.Timeline;
 
 public class SpawnEffectManager : MonoBehaviour
 {
-    public static SpawnEffectManager Instance {  get; private set; }
+    public static SpawnEffectManager Instance { get; private set; }
 
     private FpController player;
-    
+
 
     [SerializeField] private GameObject bloodBlast;
     [SerializeField] private GameObject hitMarker;
@@ -21,6 +21,15 @@ public class SpawnEffectManager : MonoBehaviour
     private int currentMap = 0;
     [SerializeField] private MMF_Player telportFeedback;
 
+
+    [Header("Spawn Enemy System")]
+    [SerializeField] private GameObject[] enemiesType;
+    [SerializeField] private Transform[] map0Points;
+    [SerializeField] private Transform[] map1Points;
+    [SerializeField] private Transform[] map2Points;
+    [SerializeField] private int maxEnemyNum;
+
+
     private void Awake()
     {
         Instance = this;
@@ -29,11 +38,16 @@ public class SpawnEffectManager : MonoBehaviour
     private void Start()
     {
         player = FpController.instance;
+        InvokeRepeating("SpawnEnemiesSystem", 1, 1);
+
+    }
+    private void Update()
+    {
     }
 
     public void SpawnBloodBlastEffect(Transform bloodSpawn)
     {
-        Instantiate(bloodBlast , bloodSpawn.position, bloodSpawn.rotation);
+        Instantiate(bloodBlast, bloodSpawn.position, bloodSpawn.rotation);
     }
 
     public void AddHitMarkerEffect()
@@ -53,7 +67,7 @@ public class SpawnEffectManager : MonoBehaviour
     {
         // i need to stop the CC for lil bit so i can telport the player 
         player.GetComponent<CharacterController>().enabled = false;
-        switch(currentMap)
+        switch (currentMap)
         {
             case 0:
                 player.transform.position = map1.position;
@@ -74,5 +88,43 @@ public class SpawnEffectManager : MonoBehaviour
         telportFeedback.PlayFeedbacks();
         // active again
         player.GetComponent<CharacterController>().enabled = true;
+    }
+
+    private void SpawnEnemiesSystem()
+    {
+        if(GetEnemyCount() >= maxEnemyNum)
+        {
+            return;
+        }
+
+        Transform spawnPoint = null;
+        GameObject enemyToSpawn = null;
+
+        switch (currentMap)
+        {
+            case 0:
+                spawnPoint = map0Points[Random.Range(0, map0Points.Length)];
+                enemyToSpawn = enemiesType[Random.Range(0, enemiesType.Length)];
+                Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+                break;
+
+            case 1:
+                spawnPoint = map1Points[Random.Range(0, map1Points.Length)];
+                enemyToSpawn = enemiesType[Random.Range(0, enemiesType.Length)];
+                Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+                break;
+
+            case 2:
+                spawnPoint = map2Points[Random.Range(0, map2Points.Length)];
+                enemyToSpawn = enemiesType[Random.Range(0, enemiesType.Length)];
+                Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+                break;
+        }
+    }
+
+    private int GetEnemyCount()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return enemies.Length;
     }
 }
