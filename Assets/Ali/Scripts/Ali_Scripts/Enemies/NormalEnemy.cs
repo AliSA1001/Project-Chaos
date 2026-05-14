@@ -7,14 +7,9 @@ public class NormalEnemy : MonoBehaviour , IDamgeable
     [SerializeField] private float enemyHp;
     [SerializeField] private Transform playerPOS;
 
-    [Header("Score Amount")]
-    [SerializeField] private int hitAmount = 10;
-    [SerializeField] private int killAmount = 100;
-
     private NavMeshAgent agent;
     private Stats staInstance;
     private FpController playerInstance;
-    private ScoreManager scoreManager;
 
     private void Awake()
     {
@@ -24,7 +19,6 @@ public class NormalEnemy : MonoBehaviour , IDamgeable
     {
         staInstance = Stats.instance;
         playerInstance = FpController.instance;
-        scoreManager = ScoreManager.instance;
     }
 
 
@@ -41,12 +35,7 @@ public class NormalEnemy : MonoBehaviour , IDamgeable
         enemyHp -= amount;
         if (enemyHp <= 0)
         {
-            scoreManager.AddKillScore(killAmount);
             Destroy(gameObject);
-        }
-        else
-        {
-            scoreManager.AddHitScore(hitAmount);
         }
     }
 

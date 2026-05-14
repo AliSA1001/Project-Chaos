@@ -33,6 +33,7 @@ public class Stats : MonoBehaviour , IDamgeable
 
     private void Update()
     {
+        if(text_HP == null) return;
         text_HP.text = hp.ToString();
 
         if (Input.GetKeyDown(KeyCode.H))
