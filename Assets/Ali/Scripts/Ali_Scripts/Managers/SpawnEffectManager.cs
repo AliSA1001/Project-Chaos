@@ -1,25 +1,53 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.Timeline;
 
 public class SpawnEffectManager : MonoBehaviour
 {
-    public static SpawnEffectManager Instance;
+    public static SpawnEffectManager Instance { get; private set; }
+
+    private FpController player;
 
 
     [SerializeField] private GameObject bloodBlast;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private AudioSource hitMarkerSound;
-   // [SerializeField] private AudioSource enemyDeathSound;
+
+
+    [Header("TransformPos")]
+    [SerializeField] private Transform map0;
+    [SerializeField] private Transform map1;
+    [SerializeField] private Transform map2;
+    private int currentMap = 0;
+    [SerializeField] private MMF_Player telportFeedback;
+
+
+    [Header("Spawn Enemy System")]
+    [SerializeField] private GameObject[] enemiesType;
+    [SerializeField] private Transform[] map0Points;
+    [SerializeField] private Transform[] map1Points;
+    [SerializeField] private Transform[] map2Points;
+    [SerializeField] private int maxEnemyNum;
+
 
     private void Awake()
     {
         Instance = this;
     }
 
+    private void Start()
+    {
+        player = FpController.instance;
+        InvokeRepeating("SpawnEnemiesSystem", 1, 1);
+
+    }
+    private void Update()
+    {
+    }
+
     public void SpawnBloodBlastEffect(Transform bloodSpawn)
     {
-        Instantiate(bloodBlast , bloodSpawn.position, bloodSpawn.rotation);
-     //   enemyDeathSound.Play();
+        Instantiate(bloodBlast, bloodSpawn.position, bloodSpawn.rotation);
     }
 
     public void AddHitMarkerEffect()
@@ -32,5 +60,71 @@ public class SpawnEffectManager : MonoBehaviour
     private void RemoveHitmarker()
     {
         hitMarker.SetActive(false);
+    }
+
+
+    public void TelportPlayer()
+    {
+        // i need to stop the CC for lil bit so i can telport the player 
+        player.GetComponent<CharacterController>().enabled = false;
+        switch (currentMap)
+        {
+            case 0:
+                player.transform.position = map1.position;
+                currentMap = 1;
+                break;
+
+            case 1:
+                player.transform.position = map2.position;
+                currentMap = 2;
+                break;
+
+            case 2:
+                player.transform.position = map0.position;
+                currentMap = 0;
+                break;
+
+        }
+        telportFeedback.PlayFeedbacks();
+        // active again
+        player.GetComponent<CharacterController>().enabled = true;
+    }
+
+    private void SpawnEnemiesSystem()
+    {
+        if (GetEnemyCount() >= maxEnemyNum)
+        {
+            return;
+        }
+
+        Transform spawnPoint = null;
+        GameObject enemyToSpawn = null;
+
+        switch (currentMap)
+        {
+            case 0:
+                spawnPoint = map0Points[Random.Range(0, map0Points.Length)];
+                enemyToSpawn = enemiesType[Random.Range(0, enemiesType.Length)];
+                Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+                break;
+
+            case 1:
+                spawnPoint = map1Points[Random.Range(0, map1Points.Length)];
+                enemyToSpawn = enemiesType[Random.Range(0, enemiesType.Length)];
+                Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+                break;
+
+            case 2:
+                spawnPoint = map2Points[Random.Range(0, map2Points.Length)];
+                enemyToSpawn = enemiesType[Random.Range(0, enemiesType.Length)];
+                Instantiate(enemyToSpawn, spawnPoint.position, spawnPoint.rotation);
+                break;
+        }
+    }
+
+    private int GetEnemyCount()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        return enemies.Length;
     }
 }
