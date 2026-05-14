@@ -11,7 +11,7 @@ public class FpController : MonoBehaviour
    public bool CanMove {  get; private set; } = true;
 
     [Header("Movement")]
-    [SerializeField] private float moveSpeed;
+    public float moveSpeed {  get; private set; }
     [SerializeField] private float walkSpeed = 3f;
     [SerializeField] private float sprintSpeed = 7f;
     [SerializeField] private float CrouchSpeed = 1.5f;
@@ -278,7 +278,7 @@ public class FpController : MonoBehaviour
             }
             else
             {
-                Debug.Log("didnt work lil bro");
+               
             }
         }
       
