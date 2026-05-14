@@ -24,14 +24,25 @@ public class GunManager : MonoBehaviour
    [SerializeField] private GameObject[] slots_UI = new GameObject[2]; // for the ui we will set them both at the same time
 
 
-   
+    public bool canQuit = true;
 
 
     private void Awake()
     {
         instance = this;
     }
-  
+    private void Update()
+    {
+        if (slots[0] == null || slots[1] == null)
+        {
+            canQuit = false;
+        }
+        else
+        {
+            canQuit = true;
+        }
+    }
+
 
     private void HandleGunSwaping()
     {

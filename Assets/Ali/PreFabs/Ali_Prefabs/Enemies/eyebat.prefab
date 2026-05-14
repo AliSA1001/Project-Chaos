@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
   player: {fileID: 0}
   hp: 100
-  speed: 7
+  speed: 4
   stopDistance: 2
   hitAmount: 10
   killAmount: 100
