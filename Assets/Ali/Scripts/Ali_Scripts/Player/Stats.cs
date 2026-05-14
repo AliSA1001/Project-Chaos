@@ -34,10 +34,9 @@ public class Stats : MonoBehaviour , IDamgeable
     private void Update()
     {
         text_HP.text = hp.ToString();
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            hp -= 20;
-        }
+        if (hp <= 0);
+        Debug.Log("you are dead");
+        
+        
     }
 }
