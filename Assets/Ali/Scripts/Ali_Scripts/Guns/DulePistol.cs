@@ -1,5 +1,4 @@
 using MoreMountains.Feedbacks;
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -11,8 +10,6 @@ public class DulePistol : MonoBehaviour
     // 'protected' means the Child (Shotgun) can see this, but other scripts cannot.
     [SerializeField] protected RaycastHit gunRaycastInfo;
     [SerializeField] private Transform maincam;
-    private FpController player;
-
 
     [Header("Stats")]
     [SerializeField] protected float gunRange = 100f;
@@ -20,8 +17,6 @@ public class DulePistol : MonoBehaviour
     [SerializeField] protected float fireRate = 0.5f;
     [SerializeField] protected float bulletSpeed = 50f;
     [SerializeField] protected int gunAmmo = 999;
-    [SerializeField] private int maxAmmo;
-
 
     [Header("Visuals")]
     [SerializeField] protected ParticleSystem muzzleEffect;
@@ -49,112 +44,76 @@ public class DulePistol : MonoBehaviour
     //input button
     protected bool attackTrigger;
 
-    [Header("Feedbacks")]
-    [SerializeField] private MMF_Player reloadFeedback;
-    [SerializeField] private MMF_Player ShootFeedback;
-    [SerializeField] private MMF_Player ShootFeedback0;
-
+    //feedback
+    [SerializeField] private MMF_Player shotFeedback;
 
     public void Start()
     {
 
+        gunAnimator = GetComponent<Animator>();
         if (maincam == null)
         {
             maincam = Camera.main.transform;
         }
-        player = FpController.instance;
-
 
     }
 
     public void Update()
     {
         HandleShooting();
-
-        HandleAnmationSprinting();
-
         text_Ammo.text = gunAmmo.ToString();
 
-    }
-
-    private void HandleAnmationSprinting()
-    {
-        if (player.moveSpeed >= 7)
-        {
-            gunAnimator.SetBool("Moving", true);
-        }
-        else
-        {
-            gunAnimator.SetBool("Moving", false);
-        }
-    }
-    private void HandleReload()
-    {
-        gunAmmo = maxAmmo;
     }
 
     protected virtual void HandleShooting()
     {
         if (attackTrigger && nextFireTime <= Time.time)
         {
-            if (gunAmmo <= 0)
+            
+            shotFeedback.PlayFeedbacks();
+            Recoil();
+
+            muzzleEffect.Play();
+
+            if (HandleHitScan(out gunRaycastInfo))
             {
+                IDamgeable damageable = gunRaycastInfo.collider.GetComponent<IDamgeable>();
+
+                if (damageable != null)
+                {
+                    damageable.TakeDamage(gunDamage);
+                }
+                StartCoroutine(HandleTrail(gunRaycastInfo));
+                if (isPoint1)
+                {
+                    currentTrailSpawnPoint = trailSpawnPoint2;
+                    isPoint1 = false;
+                }
+                else if (!isPoint1)
+                {
+                    currentTrailSpawnPoint = trailSpawnPoint1;
+                    isPoint1 = true;
+                }
             }
             else
             {
-
+                StartCoroutine(HandleLostTrail());// if we didnt hit anything in the range of the gun 
                 if (isPoint1)
                 {
-                    gunAnimator.SetTrigger("Shooting1");
-                    ShootFeedback.PlayFeedbacks();
+                    currentTrailSpawnPoint = trailSpawnPoint2;
+                    isPoint1 = false;
                 }
-                else
+                else if (!isPoint1)
                 {
-                    gunAnimator.SetTrigger("Shooting2");
-                    ShootFeedback0.PlayFeedbacks();
-
+                    currentTrailSpawnPoint = trailSpawnPoint1;
+                    isPoint1 = true;
                 }
-                if (HandleHitScan(out gunRaycastInfo))
-                {
-                    IDamgeable damageable = gunRaycastInfo.collider.GetComponent<IDamgeable>();
-
-                    if (damageable != null)
-                    {
-                        damageable.TakeDamage(gunDamage);
-                    }
-                    StartCoroutine(HandleTrail(gunRaycastInfo));
-                    if (isPoint1)
-                    {
-                        currentTrailSpawnPoint = trailSpawnPoint2;
-                        isPoint1 = false;
-                    }
-                    else if (!isPoint1)
-                    {
-                        currentTrailSpawnPoint = trailSpawnPoint1;
-                        isPoint1 = true;
-                    }
-                }
-                else
-                {
-                    StartCoroutine(HandleLostTrail());// if we didnt hit anything in the range of the gun 
-                    if (isPoint1)
-                    {
-                        currentTrailSpawnPoint = trailSpawnPoint2;
-                        isPoint1 = false;
-                    }
-                    else if (!isPoint1)
-                    {
-                        currentTrailSpawnPoint = trailSpawnPoint1;
-                        isPoint1 = true;
-                    }
-                }
-                gunAmmo--;
-                nextFireTime = Time.time + fireRate;
             }
+            gunAmmo--;
+            nextFireTime = Time.time + fireRate;
         }
         
     }
-   
 
 
     // protected virtual IEnumerator Flashmuzzle()
@@ -233,15 +192,6 @@ public class DulePistol : MonoBehaviour
         else if (context.canceled)
         {
             attackTrigger = false;
-        }
-    }
-    public void OnReload(InputAction.CallbackContext context)
-    {
-        if (context.started && gunAmmo < maxAmmo)
-        {
-            gunAnimator.SetTrigger("Reloading");
-            reloadFeedback.PlayFeedbacks();
-
         }
     }
 }
