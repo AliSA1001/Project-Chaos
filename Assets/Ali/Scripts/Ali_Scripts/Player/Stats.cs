@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour , IDamgeable
 {
@@ -33,10 +34,13 @@ public class Stats : MonoBehaviour , IDamgeable
 
     private void Update()
     {
+        if(text_HP == null)
+        return;
         text_HP.text = hp.ToString();
-        if (hp <= 0);
-        Debug.Log("you are dead");
-        
-        
+
+        if ( hp <= 0 ) 
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
