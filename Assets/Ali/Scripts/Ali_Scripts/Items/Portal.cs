@@ -18,7 +18,6 @@ public class Portal : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("player good");
         if (other.CompareTag("Player"))
         {
             spawnEffectManager.TelportPlayer();

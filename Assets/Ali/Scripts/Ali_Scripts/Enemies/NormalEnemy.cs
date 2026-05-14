@@ -18,10 +18,12 @@ public class NormalEnemy : MonoBehaviour, IDamgeable
     private FpController playerInstance;
     private ScoreManager scoreManager;
     private SpawnEffectManager spawnEffectManager;
+    private Animator animator;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
     private void Start()
     {
@@ -36,6 +38,7 @@ public class NormalEnemy : MonoBehaviour, IDamgeable
 
     private void Update()
     {
+        animator.SetBool("Moving" , true);
         float distance = Vector3. Distance(transform.position, transform.forward);
         //  if(!agent.pathPending && distance   )
         agent.SetDestination(playerPOS.position);

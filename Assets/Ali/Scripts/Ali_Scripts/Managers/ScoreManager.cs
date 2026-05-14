@@ -12,6 +12,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreNumber;
     [SerializeField] private GameObject hitMarakerUI;
     private bool isHitMarkerActive;
+
+    [SerializeField] private int scoreMultplaier;
+
     
 
 
