@@ -1787,11 +1787,16 @@ MonoBehaviour:
   map1: {fileID: 49331325}
   map2: {fileID: 1584984098}
   telportFeedback: {fileID: 2126107811}
-  enemiesType: []
-  map0Points: []
+  enemiesType:
+  - {fileID: 9046149467239562205, guid: f171f71ba93c6074185fe482c2623b5d, type: 3}
+  - {fileID: 1700876697302410094, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
+  map0Points:
+  - {fileID: 1471380563}
+  - {fileID: 49331325}
+  - {fileID: 1584984098}
   map1Points: []
   map2Points: []
-  maxEnemyNum: 0
+  maxEnemyNum: 10
 --- !u!1 &1471380562
 GameObject:
   m_ObjectHideFlags: 0
@@ -16798,6 +16803,10 @@ PrefabInstance:
     - target: {fileID: 1700876697302410094, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
       propertyPath: m_Name
       value: eyebat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700876697302410094, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6435728545398970351, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
       propertyPath: m_LocalPosition.x
