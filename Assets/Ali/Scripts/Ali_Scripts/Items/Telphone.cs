@@ -43,7 +43,6 @@ public class Telphone : MonoBehaviour, IInteractable
 
     public void UnInteract()
     {
-        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         normalUI.SetActive(true);
@@ -56,18 +55,15 @@ public class Telphone : MonoBehaviour, IInteractable
 
     public void OnQuit(InputAction.CallbackContext context)
     {
-        if (gunManagerInstance.canQuit)
+        if (context.performed)
         {
-            if (context.performed)
+            if (ingunMangerMenu)
             {
-                if (ingunMangerMenu)
-                {
-                    QuitGunsMenu();
-                }
-                else
-                {
-                    UnInteract();
-                }
+                QuitGunsMenu();
+            }
+            else
+            {
+                UnInteract();
             }
         }
     }
