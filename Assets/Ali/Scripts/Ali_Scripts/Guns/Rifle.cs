@@ -11,6 +11,7 @@ public class Rifle : MonoBehaviour
     // 'protected' means the Child (Shotgun) can see this, but other scripts cannot.
     [SerializeField] protected RaycastHit gunRaycastInfo;
     [SerializeField] private Transform maincam;
+    private FpController player;
 
     [Header("Stats")]
     [SerializeField] protected float gunRange = 100f;
@@ -18,6 +19,7 @@ public class Rifle : MonoBehaviour
     [SerializeField] protected float fireRate = 0.5f;
     [SerializeField] protected float bulletSpeed = 50f;
     [SerializeField] protected int gunAmmo = 999;
+    [SerializeField] private int maxAmmo = 80;
 
     [Header("Visuals")]
     [SerializeField] protected ParticleSystem muzzleEffect;
@@ -47,12 +49,14 @@ public class Rifle : MonoBehaviour
     //input button
     protected bool attackTrigger;
 
-    //feedback
-    [SerializeField] private MMF_Player shotFeedback;
+
+    [Header("Feedbacks")]
+    [SerializeField] private MMF_Player reloadFeedback;
+    [SerializeField] private MMF_Player ShootFeedback;
 
     public void Start()
     {
-
+       player = FpController.instance;
         gunAnimator = GetComponent<Animator>();
         if (maincam == null)
         {
@@ -64,36 +68,57 @@ public class Rifle : MonoBehaviour
     public void Update()
     {
         HandleShooting();
+        HandleAnmationSprinting();
+
+
 
         text_Ammo.text = gunAmmo.ToString();
+    }
+
+    private void HandleAnmationSprinting()
+    {
+        if (player.moveSpeed >= 7)
+        {
+            gunAnimator.SetBool("Moving", true);
+        }
+        else
+        {
+            gunAnimator.SetBool("Moving", false);
+        }
+    }
+    private void HandleReload()
+    {
+        gunAmmo = maxAmmo;
     }
 
     protected virtual void HandleShooting()
     {
         if (attackTrigger && nextFireTime <= Time.time)
         {
-
-            shotFeedback.PlayFeedbacks();
-            Recoil();
-
-            muzzleEffect.Play();
-
-            if (HandleHitScan(out gunRaycastInfo))
+            if (gunAmmo <= 0)
             {
-                IDamgeable damageable = gunRaycastInfo.collider.GetComponent<IDamgeable>();
-
-                if (damageable != null)
-                {
-                    damageable.TakeDamage(gunDamage);
-                }
-                StartCoroutine(HandleTrail(gunRaycastInfo));
             }
             else
             {
-                StartCoroutine(HandleLostTrail());// if we didnt hit anything in the range of the gun 
+                ShootFeedback.PlayFeedbacks();
+
+                if (HandleHitScan(out gunRaycastInfo))
+                {
+                    IDamgeable damageable = gunRaycastInfo.collider.GetComponent<IDamgeable>();
+
+                    if (damageable != null)
+                    {
+                        damageable.TakeDamage(gunDamage);
+                    }
+                    StartCoroutine(HandleTrail(gunRaycastInfo));
+                }
+                else
+                {
+                    StartCoroutine(HandleLostTrail());// if we didnt hit anything in the range of the gun 
+                }
+                gunAmmo--;
+                nextFireTime = Time.time + fireRate;
             }
-            gunAmmo--;
-            nextFireTime = Time.time + fireRate;
         }
     }
 
@@ -169,11 +194,25 @@ public class Rifle : MonoBehaviour
         if (context.started)
         {
             attackTrigger = true;
+            gunAnimator.SetBool("Shooting", true);
+
 
         }
         else if (context.canceled)
         {
             attackTrigger = false;
+            gunAnimator.SetBool("Shooting", false);
+
+        }
+        
+    }
+    public void OnReload(InputAction.CallbackContext context)
+    {
+        if (context.started && gunAmmo < maxAmmo)
+        {
+            gunAnimator.SetTrigger("Reloding");
+            reloadFeedback.PlayFeedbacks();
+
         }
     }
 }
