@@ -80,11 +80,11 @@ public class Shotgun : MonoBehaviour
     {
         if(player.moveSpeed >= 7)
         {
-            gunAnimator.SetBool("sprinting", true);
+            gunAnimator.SetBool("Moving", true);
         }
         else
         {
-            gunAnimator.SetBool("sprinting", false);
+            gunAnimator.SetBool("Moving", false);
         }
     }
     private void HandleReload() 
@@ -104,7 +104,7 @@ public class Shotgun : MonoBehaviour
             }
             else
             {
-                gunAnimator.SetTrigger("Attacking");
+                gunAnimator.SetTrigger("Attacking 0");
 
                 shotFeedback.PlayFeedbacks();
 
