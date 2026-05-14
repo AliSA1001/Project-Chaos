@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ef3e8a7f60e4f0e4eaa9400dd95419b7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 358478
+  packageName: WatchTower Demo Props Crate & Barrel HDRP/URP
+  packageVersion: 1.0
+  assetPath: Assets/WT_Props/Barrel_Materials/Barrel_Body/Barrel_Body_Mateial.mat
+  uploadId: 854378

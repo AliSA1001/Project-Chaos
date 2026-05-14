@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2dac081c9361c614886db50184746f5c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 358478
+  packageName: WatchTower Demo Props Crate & Barrel HDRP/URP
+  packageVersion: 1.0
+  assetPath: Assets/WT_Props/Crate_Materials/Crate_Rings_Hinges/Crate_RingsHinges_Material.mat
+  uploadId: 854378
