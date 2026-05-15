@@ -1,4 +1,5 @@
 using MoreMountains.Feedbacks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Timeline;
 
@@ -34,10 +35,14 @@ public class SpawnEffectManager : MonoBehaviour
     [Header("Portal Opening System")]
     [SerializeField] private Portal[] allportals;
     [SerializeField] private int newRequiredScore;
+    [SerializeField] private GameObject getToThePortalTextGameObject;
+    public bool canScore { get; private set; }
 
-    private void Awake()
+
+private void Awake()
     {
         Instance = this;
+        canScore = true;
     }
 
     private void Start()
@@ -57,6 +62,8 @@ public class SpawnEffectManager : MonoBehaviour
             for (int i = 0; i < allportals.Length; i++)
             {
                 allportals[i].gameObject.SetActive(true);
+                canScore = false;
+                getToThePortalTextGameObject.SetActive(true) ;
             }
         }
         
@@ -110,6 +117,8 @@ public class SpawnEffectManager : MonoBehaviour
         for (int i = 0; i < allportals.Length; i++)
        {
            allportals[i].gameObject.SetActive(false);
+            canScore = true;
+            getToThePortalTextGameObject.SetActive(false);
        }
     }
 

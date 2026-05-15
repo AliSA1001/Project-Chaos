@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     private int score = 0;
     private GunManager gunManager;
+    private SpawnEffectManager spawnEffectManager;
 
 
     [SerializeField] private TMP_Text scoreNumber;
@@ -23,6 +24,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         gunManager = GunManager.instance;
+        spawnEffectManager = SpawnEffectManager.Instance;
     }
     private void Update()
     {
@@ -33,13 +35,19 @@ public class ScoreManager : MonoBehaviour
 
     public void AddHitScore(int amount)
     {
-        score += amount;
-        Invoke("RemoveHitmarker", 0.5f);
+        if (spawnEffectManager.canScore )
+        {
+            score += amount;
+            Invoke("RemoveHitmarker", 0.5f);
+        }
     }
     public void AddKillScore(int amount)
     {
-        score += amount;
-        Invoke("RemoveHitmarker", 0.5f);
+        if (spawnEffectManager.canScore)
+        {
+            score += amount;
+            Invoke("RemoveHitmarker", 0.5f);
+        }
     }
 
 
