@@ -4,6 +4,7 @@ public class Portal : MonoBehaviour
 {
    private SpawnEffectManager spawnEffectManager;
     private FpController player;
+    
 
 
     private void Start()

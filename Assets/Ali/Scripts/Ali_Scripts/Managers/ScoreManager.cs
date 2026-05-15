@@ -48,5 +48,8 @@ public class ScoreManager : MonoBehaviour
         hitMarakerUI.SetActive(false);
     }
 
-
+    public int CheckScore()
+    {
+        return score;
+    }
 }

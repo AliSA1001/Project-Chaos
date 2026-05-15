@@ -7,6 +7,7 @@ public class SpawnEffectManager : MonoBehaviour
     public static SpawnEffectManager Instance { get; private set; }
 
     private FpController player;
+    private ScoreManager scoreManager;
 
 
     [SerializeField] private GameObject bloodBlast;
@@ -30,6 +31,10 @@ public class SpawnEffectManager : MonoBehaviour
     [SerializeField] private int maxEnemyNum;
 
 
+    [Header("Portal Opening System")]
+    [SerializeField] private Portal[] allportals;
+    [SerializeField] private int newRequiredScore;
+
     private void Awake()
     {
         Instance = this;
@@ -38,11 +43,24 @@ public class SpawnEffectManager : MonoBehaviour
     private void Start()
     {
         player = FpController.instance;
+        scoreManager = ScoreManager.instance;
+
+
         InvokeRepeating("SpawnEnemiesSystem", 1, 1);
 
     }
     private void Update()
     {
+       if(scoreManager.CheckScore() >=newRequiredScore)
+        {
+            newRequiredScore = 2 * newRequiredScore;
+            for (int i = 0; i < allportals.Length; i++)
+            {
+                allportals[i].gameObject.SetActive(true);
+            }
+        }
+        
+           
     }
 
     public void SpawnBloodBlastEffect(Transform bloodSpawn)
@@ -88,11 +106,16 @@ public class SpawnEffectManager : MonoBehaviour
         telportFeedback.PlayFeedbacks();
         // active again
         player.GetComponent<CharacterController>().enabled = true;
+
+        for (int i = 0; i < allportals.Length; i++)
+       {
+           allportals[i].gameObject.SetActive(false);
+       }
     }
 
     private void SpawnEnemiesSystem()
     {
-        if (GetEnemyCount() >= maxEnemyNum)
+        if (GetEnemyCount() >= maxEnemyNum || enemiesType == null)
         {
             return;
         }
