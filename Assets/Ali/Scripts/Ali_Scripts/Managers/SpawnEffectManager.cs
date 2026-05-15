@@ -10,7 +10,7 @@ public class SpawnEffectManager : MonoBehaviour
     private FpController player;
     private ScoreManager scoreManager;
 
-
+    [Header("Hurting Enemy System")]
     [SerializeField] private GameObject bloodBlast;
     [SerializeField] private GameObject hitMarker;
     [SerializeField] private AudioSource hitMarkerSound;
@@ -34,8 +34,9 @@ public class SpawnEffectManager : MonoBehaviour
 
     [Header("Portal Opening System")]
     [SerializeField] private Portal[] allportals;
-    [SerializeField] private int newRequiredScore;
+    [SerializeField] private int newKillCount = 10;
     [SerializeField] private GameObject getToThePortalTextGameObject;
+    [SerializeField] private TMP_Text newkillcountText;
     public bool canScore { get; private set; }
 
 
@@ -56,13 +57,16 @@ private void Awake()
     }
     private void Update()
     {
-       if(scoreManager.CheckScore() >=newRequiredScore)
+        newkillcountText.text = newKillCount.ToString();
+
+       if(scoreManager.KillCount >= newKillCount)
         {
-            newRequiredScore = 2 * newRequiredScore;
+            newKillCount = 2 * newKillCount;
             for (int i = 0; i < allportals.Length; i++)
             {
                 allportals[i].gameObject.SetActive(true);
                 canScore = false;
+                // text
                 getToThePortalTextGameObject.SetActive(true) ;
             }
         }
@@ -73,6 +77,8 @@ private void Awake()
     public void SpawnBloodBlastEffect(Transform bloodSpawn)
     {
         Instantiate(bloodBlast, bloodSpawn.position, bloodSpawn.rotation);
+
+        // add kill count
     }
 
     public void AddHitMarkerEffect()

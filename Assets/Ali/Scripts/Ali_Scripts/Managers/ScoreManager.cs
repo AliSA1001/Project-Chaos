@@ -11,7 +11,10 @@ public class ScoreManager : MonoBehaviour
 
 
     [SerializeField] private TMP_Text scoreNumber;
+    [SerializeField] private TMP_Text currentDeathCountText;
     [SerializeField] private GameObject hitMarakerUI;
+    public int KillCount {  get; private set; }
+
     private bool isHitMarkerActive;
     
 
@@ -19,6 +22,7 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        KillCount = 0;
     }
 
     private void Start()
@@ -29,7 +33,7 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         scoreNumber.text = score.ToString();
-
+        currentDeathCountText.text = KillCount.ToString();
     }
 
 
@@ -46,6 +50,7 @@ public class ScoreManager : MonoBehaviour
         if (spawnEffectManager.canScore)
         {
             score += amount;
+            KillCount += 1;
             Invoke("RemoveHitmarker", 0.5f);
         }
     }
