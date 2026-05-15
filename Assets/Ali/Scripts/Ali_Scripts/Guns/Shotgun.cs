@@ -64,7 +64,6 @@ public class Shotgun : MonoBehaviour
     {
         HandleShooting();
 
-        if(text_Ammo == null) return;
         text_Ammo.text = gunAmmo.ToString();
     }
 

@@ -40,8 +40,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
     - _DstBlend: 10
     - _DstBlendAlpha: 10
+    - _Metallic: 1
+    - _Smoothness: 1
     - _Surface: 1
     - _ZWrite: 0
     m_Colors:
