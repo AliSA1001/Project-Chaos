@@ -40,7 +40,7 @@ public class SpawnEffectManager : MonoBehaviour
     public bool canScore { get; private set; }
 
 
-private void Awake()
+    private void Awake()
     {
         Instance = this;
         canScore = true;
@@ -59,7 +59,7 @@ private void Awake()
     {
         newkillcountText.text = newKillCount.ToString();
 
-       if(scoreManager.KillCount >= newKillCount)
+        if (scoreManager.KillCount >= newKillCount)
         {
             newKillCount = 2 * newKillCount;
             for (int i = 0; i < allportals.Length; i++)
@@ -67,11 +67,11 @@ private void Awake()
                 allportals[i].gameObject.SetActive(true);
                 canScore = false;
                 // text
-                getToThePortalTextGameObject.SetActive(true) ;
+                getToThePortalTextGameObject.SetActive(true);
             }
         }
-        
-           
+
+
     }
 
     public void SpawnBloodBlastEffect(Transform bloodSpawn)
@@ -121,11 +121,13 @@ private void Awake()
         player.GetComponent<CharacterController>().enabled = true;
 
         for (int i = 0; i < allportals.Length; i++)
-       {
-           allportals[i].gameObject.SetActive(false);
+        {
+            allportals[i].gameObject.SetActive(false);
             canScore = true;
             getToThePortalTextGameObject.SetActive(false);
-       }
+        }
+       
+        maxEnemyNum = 2* maxEnemyNum;
     }
 
     private void SpawnEnemiesSystem()
