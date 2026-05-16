@@ -721,20 +721,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3308656994939520905, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 754149850051327458, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_IsKinematic
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1700876697302410094, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
       propertyPath: m_Name
       value: eyebat
-      objectReference: {fileID: 0}
-    - target: {fileID: 3812848559382485586, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6435728545398970351, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1053,6 +1045,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 30275337847749635, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 105392923812677135, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
       propertyPath: text_Ammo
       value: 
@@ -1100,6 +1096,10 @@ PrefabInstance:
     - target: {fileID: 2126567673024157510, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626246561279962038, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 183
       objectReference: {fileID: 0}
     - target: {fileID: 2960660702083523251, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
       propertyPath: text_Ammo
@@ -1253,7 +1253,7 @@ PrefabInstance:
       objectReference: {fileID: 1567993136}
     - target: {fileID: 5115716464878342486, guid: 733685f958997ff459f5567739b4a72d, type: 3}
       propertyPath: maxEnemyNum
-      value: 30
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5115716464878342486, guid: 733685f958997ff459f5567739b4a72d, type: 3}
       propertyPath: newKillCount
