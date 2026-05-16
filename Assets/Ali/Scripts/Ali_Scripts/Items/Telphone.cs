@@ -74,6 +74,7 @@ public class Telphone : MonoBehaviour, IInteractable
 
     public void EneterGunsMenu()
     {
+        Debug.Log("we are in");
         pistolButton.SetActive(true);
         rifleButton.SetActive(true);
         shotgunButton.SetActive(true);

@@ -34,8 +34,8 @@ public class GunManager : MonoBehaviour
     private void Update()
     {
         if (slots[0] == null || slots[1] == null)
-        {
-            canQuit = false;
+       {
+           canQuit = false;
         }
         else
         {
