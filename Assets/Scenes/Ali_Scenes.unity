@@ -15884,6 +15884,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!225 &788115339 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 3495619314342288508, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+  m_PrefabInstance: {fileID: 1003485328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &788275682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3898378630507882991, guid: 4db1ed83d121fde43903163a6094ef1f, type: 3}
@@ -38249,7 +38254,7 @@ MonoBehaviour:
         AllowAdditivePlays: 0
         DisableOnStop: 0
         OnlyPlayIfTargetIsActive: 0
-        TargetCanvasGroup: {fileID: 0}
+        TargetCanvasGroup: {fileID: 788115339}
         AlphaCurve:
           MMTweenDefinitionType: 1
           MMTweenCurve: 4
