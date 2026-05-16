@@ -6962,6 +6962,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8097860741330282927, guid: 0774131a6caf38a44839271e174a311e, type: 3}
+--- !u!114 &366270521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3459438964243498106, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+  m_PrefabInstance: {fileID: 1003485328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &367337182 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7214368511699890385, guid: ec72a25c7efd49649925373cd85f2617, type: 3}
@@ -9057,6 +9068,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 630.66797, y: 137.78491, z: 209.99986}
   m_Center: {x: 0.0009613037, y: 63.444042, z: 0.001953125}
+--- !u!114 &509736581 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6204083902568728308, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+  m_PrefabInstance: {fileID: 1003485328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &510293527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8718421463415396147, guid: ec72a25c7efd49649925373cd85f2617, type: 3}
@@ -10492,7 +10514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &608002372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22264,6 +22286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 105392923812677135, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
+      propertyPath: text_Ammo
+      value: 
+      objectReference: {fileID: 366270521}
     - target: {fileID: 158771011528150758, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -106.918755
@@ -22304,14 +22330,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2960660702083523251, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
+      propertyPath: text_Ammo
+      value: 
+      objectReference: {fileID: 509736581}
     - target: {fileID: 3667022195208951067, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
       propertyPath: text_HP
       value: 
       objectReference: {fileID: 671994779}
     - target: {fileID: 7172738052246658205, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7554803868586981977, guid: c85c321485f7d614eb899a4bab4d973a, type: 3}
+      propertyPath: text_Ammo
+      value: 
+      objectReference: {fileID: 1793651675}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32883,6 +32917,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &1793651675 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8693768918042281408, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+  m_PrefabInstance: {fileID: 1003485328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1795303313
 PrefabInstance:
   m_ObjectHideFlags: 0
