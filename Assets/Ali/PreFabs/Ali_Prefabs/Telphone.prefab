@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 707407384596080884}
+  - {fileID: 1024885465590228113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2207019655798255889
@@ -52,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4705095664794699890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -113,7 +114,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2.4, y: 1, z: 1.15}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1849250952854312573
 MonoBehaviour:
@@ -206,6 +207,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4dba9c36-d01a-4939-8cc6-a6360f20f454
     m_ActionName: 'Telphone/QuitMenu[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 015bb40d-e881-4457-af36-a2e74da447f2
+    m_ActionName: 'Guns/Reload[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Telphone
@@ -242,3 +247,85 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5547521955162756197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &699085555602424698
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5547521955162756197}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.44682
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.27821103
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.024772644
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6959525354264728406, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.338
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+      propertyPath: m_Name
+      value: telephone box
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+--- !u!4 &1024885465590228113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6dab13f9d8e35b448c41bf1bde7d30d, type: 3}
+  m_PrefabInstance: {fileID: 699085555602424698}
+  m_PrefabAsset: {fileID: 0}
