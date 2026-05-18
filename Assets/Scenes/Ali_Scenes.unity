@@ -19113,6 +19113,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1121906320069499064, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121906320069499064, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -27
+      objectReference: {fileID: 0}
     - target: {fileID: 1386054186354459037, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -19120,6 +19128,10 @@ PrefabInstance:
     - target: {fileID: 1386054186354459037, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AddpistolToSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1766333982459877228, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2041503987867315477, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
       propertyPath: m_Name
@@ -19233,9 +19245,37 @@ PrefabInstance:
       propertyPath: m_BlocksRaycasts
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4071164632868132454, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071164632868132454, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207550156766388812, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207550156766388812, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207550156766388812, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 5817570771913683357, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474092958411068744, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 126.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474092958411068744, guid: bd3493bc86c622c4ebd2abebd82e4935, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
