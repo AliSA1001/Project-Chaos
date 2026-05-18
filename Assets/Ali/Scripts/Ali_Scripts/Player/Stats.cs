@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour , IDamgeable
 {
@@ -7,7 +8,7 @@ public class Stats : MonoBehaviour , IDamgeable
 
 
 
-    [SerializeField] private float hp;
+    [SerializeField] private float hp = 100;
     
 
 
@@ -35,8 +36,10 @@ public class Stats : MonoBehaviour , IDamgeable
     {
         text_HP.text = hp.ToString();
         if (hp <= 0)
-        Debug.Log("you are dead");
-        
-        
+        {
+            Debug.Log("you are dead");
+            SceneManager.LoadScene(2);
+        }
+
     }
 }
