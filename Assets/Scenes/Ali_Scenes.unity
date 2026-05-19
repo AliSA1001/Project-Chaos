@@ -2076,6 +2076,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2524663324734829972, guid: 918dddf1790f67349976965e719ab1bf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 22aebfeaaedb67b4b84211fd2b108c9e, type: 2}
     - target: {fileID: 8072898132551554302, guid: 918dddf1790f67349976965e719ab1bf, type: 3}
       propertyPath: playerPOS
       value: 
@@ -10642,12 +10646,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608002371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f5eac9199eeb9c4daa355eec1deb3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CinematicCutscene
-  defaultCamera: {fileID: 0}
+  defaultCamera: {fileID: 579505748}
   subtitleTextUI: {fileID: 0}
   audioSource: {fileID: 0}
   startButtonUI: {fileID: 0}
@@ -24887,13 +24891,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276628877}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35235596, y: 6.617445e-24, z: -0, w: 0.93586606}
-  m_LocalPosition: {x: -220, y: 29, z: 95}
+  m_LocalRotation: {x: 0.37731242, y: 6.617446e-24, z: 6.617446e-24, w: 0.92608607}
+  m_LocalPosition: {x: -220, y: 3, z: 73}
   m_LocalScale: {x: 101.031, y: 1, z: 58.985928}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 319665881}
-  m_LocalEulerAnglesHint: {x: 41.263, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 44.335, y: 0, z: 0}
 --- !u!64 &1276628879
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27454,13 +27458,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443968302}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.35235596, y: 6.617445e-24, z: -0, w: 0.93586606}
-  m_LocalPosition: {x: 4470, y: 29, z: 95}
+  m_LocalRotation: {x: 0.4336267, y: 1.323489e-23, z: 3.3087225e-24, w: 0.90109265}
+  m_LocalPosition: {x: 4470, y: 1, z: 23}
   m_LocalScale: {x: 101.031, y: 1, z: 58.985928}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 319665881}
-  m_LocalEulerAnglesHint: {x: 41.263, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 51.396, y: 0, z: 0}
 --- !u!64 &1443968304
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -37774,6 +37778,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1377083937}
     - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
+      propertyPath: enemiesType.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
       propertyPath: 'allportals.Array.data[0]'
       value: 
       objectReference: {fileID: 1393487153}
@@ -37821,6 +37829,10 @@ PrefabInstance:
       propertyPath: 'map2Points.Array.data[2]'
       value: 
       objectReference: {fileID: 747421687}
+    - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
+      propertyPath: 'enemiesType.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1700876697302410094, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
     - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
       propertyPath: getToThePortalTextGameObject
       value: 
