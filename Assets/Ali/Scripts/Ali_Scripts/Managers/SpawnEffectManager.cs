@@ -23,6 +23,10 @@ public class SpawnEffectManager : MonoBehaviour
     private int currentMap = 0;
     [SerializeField] private MMF_Player telportFeedback;
 
+    [SerializeField] private GameObject zoneLighing0;
+    [SerializeField] private GameObject zoneLighing1;
+    [SerializeField] private GameObject zoneLighing2;
+
 
     [Header("Spawn Enemy System")]
     [SerializeField] private GameObject[] enemiesType;
@@ -103,16 +107,26 @@ public class SpawnEffectManager : MonoBehaviour
             case 0:
                 player.transform.position = map1.position;
                 currentMap = 1;
+
+                zoneLighing0.SetActive(false);
+                zoneLighing1.SetActive(true);
+                zoneLighing2.SetActive(false);
                 break;
 
             case 1:
                 player.transform.position = map2.position;
                 currentMap = 2;
+                zoneLighing0.SetActive(false);
+                zoneLighing1.SetActive(false);
+                zoneLighing2.SetActive(true);
                 break;
 
             case 2:
                 player.transform.position = map0.position;
                 currentMap = 0;
+                zoneLighing0.SetActive(true);
+                zoneLighing1.SetActive(false);
+                zoneLighing2.SetActive(false);
                 break;
 
         }
