@@ -2088,11 +2088,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRobot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8072898132551554302, guid: 918dddf1790f67349976965e719ab1bf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8810760098668489437, guid: 918dddf1790f67349976965e719ab1bf, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 145868931}
   m_SourcePrefab: {fileID: 100100000, guid: 918dddf1790f67349976965e719ab1bf, type: 3}
+--- !u!1 &145868930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8810760098668489437, guid: 918dddf1790f67349976965e719ab1bf, type: 3}
+  m_PrefabInstance: {fileID: 145868929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &145868931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145868930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18197ef66c015cf4d9325763de00e3d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BigEnemy
+  enemyHp: 300
+  playerPOS: {fileID: 0}
+  hitAmount: 10
+  killAmount: 100
 --- !u!1 &147912699 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3771424124376005163, guid: ec72a25c7efd49649925373cd85f2617, type: 3}
