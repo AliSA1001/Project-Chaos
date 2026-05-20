@@ -10,6 +10,11 @@ public class Stats : MonoBehaviour , IDamgeable
 
     [SerializeField] private float hp = 100;
     [SerializeField] private float maxHp = 100;
+    [SerializeField] private float reHealSpeed;
+
+    [SerializeField] private float timeToReheal;
+    [SerializeField] private float currentTime;
+
 
 
 
@@ -31,6 +36,7 @@ public class Stats : MonoBehaviour , IDamgeable
     }
     public void TakeDamage(float amount)
     {
+        currentTime = 0;
         hp -= amount;
         // damage taken effect
         bl_DamageScreen.UpdateHealth(Mathf.CeilToInt(hp), Mathf.RoundToInt(maxHp));
@@ -43,6 +49,16 @@ public class Stats : MonoBehaviour , IDamgeable
         {
             Debug.Log("you are dead");
             SceneManager.LoadScene(2);
+        }
+
+        currentTime += Time.deltaTime;
+        if(currentTime > timeToReheal)
+        {
+            hp += reHealSpeed * Time.deltaTime;
+
+            hp = Mathf.Min(hp, maxHp);
+            bl_DamageScreen.UpdateHealth(Mathf.CeilToInt(hp), Mathf.RoundToInt(maxHp));
+
         }
 
     }
