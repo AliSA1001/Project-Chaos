@@ -116,6 +116,7 @@ public class SpawnEffectManager : MonoBehaviour
             case 1:
                 player.transform.position = map2.position;
                 currentMap = 2;
+
                 zoneLighing0.SetActive(false);
                 zoneLighing1.SetActive(false);
                 zoneLighing2.SetActive(true);
@@ -124,6 +125,7 @@ public class SpawnEffectManager : MonoBehaviour
             case 2:
                 player.transform.position = map0.position;
                 currentMap = 0;
+
                 zoneLighing0.SetActive(true);
                 zoneLighing1.SetActive(false);
                 zoneLighing2.SetActive(false);
