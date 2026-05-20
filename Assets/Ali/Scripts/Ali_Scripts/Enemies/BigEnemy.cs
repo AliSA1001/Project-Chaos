@@ -1,5 +1,6 @@
 using MoreMountains.Feedbacks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BigEnemy : MonoBehaviour , IDamgeable
 {
@@ -19,6 +20,11 @@ public class BigEnemy : MonoBehaviour , IDamgeable
 
     [Header("AttackHitbox")]
     [SerializeField] private GameObject sphereHitbox;
+
+    [Header("When the Boss dies")]
+    [SerializeField] private TelportPlayerToSavePlace end;
+
+    
 
     private UnityEngine.AI.NavMeshAgent agent;
     private Stats staInstance;
@@ -73,6 +79,8 @@ public class BigEnemy : MonoBehaviour , IDamgeable
         {
             scoreManager.AddKillScore(killAmount);
             spawnEffectManager.SpawnBloodBlastEffect(gameObject.transform);
+            end.TelportNow();
+
             Destroy(gameObject);
         }
         else
