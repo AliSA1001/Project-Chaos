@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class BigEnemy : MonoBehaviour
@@ -13,6 +14,11 @@ public class BigEnemy : MonoBehaviour
 
     [Header("AI")]
     [SerializeField] private float distanceToAttack;
+    [SerializeField] private MMF_Player impactEffectFeedback;
+    [SerializeField] private ParticleSystem hitImpact;
+
+    [Header("AttackHitbox")]
+    [SerializeField] private GameObject sphereHitbox;
 
     private UnityEngine.AI.NavMeshAgent agent;
     private Stats staInstance;
@@ -20,6 +26,7 @@ public class BigEnemy : MonoBehaviour
     private ScoreManager scoreManager;
     private SpawnEffectManager spawnEffectManager;
     private Animator animator;
+    private bool canMove = true;
 
     private void Awake()
     {
@@ -40,12 +47,23 @@ public class BigEnemy : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, playerPOS.position);
-        if (!agent.pathPending && distance > distanceToAttack)
+        if (!agent.pathPending && distance > distanceToAttack && canMove)
         {
             agent.SetDestination(playerPOS.position);
         }
+        else
+        {
+            animator.SetTrigger("Attack");
+
+        }
     }
 
+    private void AttackImpact()
+    {
+        Instantiate(hitImpact, impactEffectFeedback.gameObject.transform.position, impactEffectFeedback.gameObject.transform.rotation);
+        sphereHitbox.SetActive(true);
+
+    }
 
     public void TakeDamage(float amount)
     {
