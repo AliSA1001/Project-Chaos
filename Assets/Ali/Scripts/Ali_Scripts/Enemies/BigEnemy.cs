@@ -1,7 +1,7 @@
 using MoreMountains.Feedbacks;
 using UnityEngine;
 
-public class BigEnemy : MonoBehaviour
+public class BigEnemy : MonoBehaviour , IDamgeable
 {
     [SerializeField] private float enemyHp;
     [SerializeField] private Transform playerPOS;
