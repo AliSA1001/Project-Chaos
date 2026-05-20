@@ -105,6 +105,7 @@ public class SpawnEffectManager : MonoBehaviour
         switch (currentMap)
         {
             case 0:
+                DestroyAllEnemies();
                 player.transform.position = map1.position;
                 currentMap = 1;
 
@@ -114,6 +115,7 @@ public class SpawnEffectManager : MonoBehaviour
                 break;
 
             case 1:
+                DestroyAllEnemies();
                 player.transform.position = map2.position;
                 currentMap = 2;
 
@@ -123,6 +125,7 @@ public class SpawnEffectManager : MonoBehaviour
                 break;
 
             case 2:
+                DestroyAllEnemies();
                 player.transform.position = map0.position;
                 currentMap = 0;
 
@@ -144,6 +147,16 @@ public class SpawnEffectManager : MonoBehaviour
         }
        
         maxEnemyNum = 2* maxEnemyNum;
+    }
+
+    private void DestroyAllEnemies()
+    {
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject enemy in allEnemies)
+        {
+            Destroy(enemy);
+        }
     }
 
     private void SpawnEnemiesSystem()
