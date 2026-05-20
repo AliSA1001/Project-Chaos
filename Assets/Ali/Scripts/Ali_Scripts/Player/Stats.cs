@@ -9,7 +9,9 @@ public class Stats : MonoBehaviour , IDamgeable
 
 
     [SerializeField] private float hp = 100;
-    
+    [SerializeField] private float maxHp = 100;
+
+
 
 
     [Header("TMP REF HERE")]
@@ -30,6 +32,8 @@ public class Stats : MonoBehaviour , IDamgeable
     public void TakeDamage(float amount)
     {
         hp -= amount;
+        // damage taken effect
+        bl_DamageScreen.UpdateHealth(Mathf.CeilToInt(hp), Mathf.RoundToInt(maxHp));
     }
 
     private void Update()
