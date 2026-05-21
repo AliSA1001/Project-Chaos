@@ -41,6 +41,12 @@ public class SpawnEffectManager : MonoBehaviour
     [SerializeField] private int newKillCount = 10;
     [SerializeField] private GameObject getToThePortalTextGameObject;
     [SerializeField] private TMP_Text newkillcountText;
+
+
+    [Header("SoundTracks")]
+    [SerializeField] private AudioSource Song1;
+    [SerializeField] private AudioSource Song2;
+    [SerializeField] private AudioSource Song3;
     public bool canScore { get; private set; }
 
 
@@ -57,6 +63,8 @@ public class SpawnEffectManager : MonoBehaviour
 
 
         InvokeRepeating("SpawnEnemiesSystem", 1, 1);
+
+        Song1.Play();
 
     }
     private void Update()
@@ -112,6 +120,10 @@ public class SpawnEffectManager : MonoBehaviour
                 zoneLighing0.SetActive(false);
                 zoneLighing1.SetActive(true);
                 zoneLighing2.SetActive(false);
+
+                Song2.Play();
+                Song1.Stop();
+                Song3.Stop();
                 break;
 
             case 1:
@@ -122,6 +134,10 @@ public class SpawnEffectManager : MonoBehaviour
                 zoneLighing0.SetActive(false);
                 zoneLighing1.SetActive(false);
                 zoneLighing2.SetActive(true);
+
+                Song3.Play();
+                Song2.Stop();
+                Song1.Stop();
                 break;
 
             case 2:
@@ -132,6 +148,10 @@ public class SpawnEffectManager : MonoBehaviour
                 zoneLighing0.SetActive(true);
                 zoneLighing1.SetActive(false);
                 zoneLighing2.SetActive(false);
+
+                Song1.Play();
+                Song2.Stop();
+                Song3.Stop();
                 break;
 
         }

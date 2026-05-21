@@ -10815,8 +10815,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7af372608e682d440a789cad3ee76d96, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15411,8 +15411,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: aa1d9c89ec2a9224faf691522590a461, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -28001,8 +28001,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 864f1873bdc7d694a8c9852f8f30bee3, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -40183,6 +40183,18 @@ PrefabInstance:
       propertyPath: managedReferences[613369473331363957].TargetCanvasGroup
       value: 
       objectReference: {fileID: 788115339}
+    - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
+      propertyPath: Song1
+      value: 
+      objectReference: {fileID: 720382244}
+    - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
+      propertyPath: Song2
+      value: 
+      objectReference: {fileID: 560999467}
+    - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
+      propertyPath: Song3
+      value: 
+      objectReference: {fileID: 1367527453}
     - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
       propertyPath: hitMarker
       value: 
