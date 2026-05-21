@@ -822,7 +822,7 @@ Transform:
   m_GameObject: {fileID: 49331324}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -48.29, y: -2.69, z: -7.86}
+  m_LocalPosition: {x: -26.84, y: 0.46, z: -7.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10828,7 +10828,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7af372608e682d440a789cad3ee76d96, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15437,7 +15437,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: aa1d9c89ec2a9224faf691522590a461, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -28035,7 +28035,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 864f1873bdc7d694a8c9852f8f30bee3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -29797,7 +29797,7 @@ Transform:
   m_GameObject: {fileID: 1471380562}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.77, y: 0, z: 4.28}
+  m_LocalPosition: {x: 2.57, y: 0, z: 4.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31298,7 +31298,7 @@ Transform:
   m_GameObject: {fileID: 1584984097}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.47, y: -2.37, z: -12.659996}
+  m_LocalPosition: {x: -18.14, y: 1.07, z: -6.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40355,7 +40355,7 @@ PrefabInstance:
       objectReference: {fileID: 406107668}
     - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
       propertyPath: newKillCount
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
       propertyPath: zoneLighing0
