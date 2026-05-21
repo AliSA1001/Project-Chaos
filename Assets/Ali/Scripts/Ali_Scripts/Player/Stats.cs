@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // 1. Required to access the Slider component
+using UnityEngine.UI; 
 using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour, IDamgeable
@@ -8,11 +8,11 @@ public class Stats : MonoBehaviour, IDamgeable
     public static Stats instance { get; private set; }
 
     [SerializeField] private float hp = 100;
-    private float maxHp; // 2. Keep track of the starting health for the slider's maximum
+    private float maxHp; 
 
     [Header("UI References")]
     [SerializeField] private TMP_Text text_HP;
-    [SerializeField] private Slider hpSlider; // 3. The reference to your UI Slider
+    [SerializeField] private Slider hpSlider; 
 
     private void Awake()
     {
@@ -28,23 +28,21 @@ public class Stats : MonoBehaviour, IDamgeable
 
     private void Start()
     {
-        maxHp = hp; // Store the initial health
-
-        // Set up the slider's initial values
+        maxHp = hp;
         if (hpSlider != null)
         {
             hpSlider.maxValue = maxHp;
             hpSlider.value = hp;
         }
 
-        UpdateUI(); // Make sure the UI is correct right when the game starts
+        UpdateUI(); 
     }
 
     public void TakeDamage(float amount)
     {
         hp -= amount;
 
-        UpdateUI(); // 4. Update the slider and text ONLY when health changes
+        UpdateUI(); 
 
         if (hp <= 0)
         {
@@ -53,7 +51,7 @@ public class Stats : MonoBehaviour, IDamgeable
         }
     }
 
-    // A dedicated method to handle all UI updates
+   
     private void UpdateUI()
     {
         if (text_HP != null)

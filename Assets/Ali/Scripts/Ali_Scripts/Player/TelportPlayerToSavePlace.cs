@@ -3,101 +3,55 @@ using UnityEngine;
 
 public class TelportPlayerToSavePlace : MonoBehaviour
 {
-    [SerializeField] private float enemyHp;
-    [SerializeField] private Transform playerPOS;
-
-
-    [Header("Score Amount")]
-    [SerializeField] private int hitAmount = 10;
-    [SerializeField] private int killAmount = 100;
-
-
-    [Header("AI")]
-    [SerializeField] private float distanceToAttack;
-    [SerializeField] private MMF_Player impactEffectFeedback;
-    [SerializeField] private ParticleSystem hitImpact;
-
-    [Header("AttackHitbox")]
-    [SerializeField] private GameObject sphereHitbox;
-
-    [Header("When the Boss dies")]
-    [SerializeField] private TelportPlayerToSavePlace end;
+    private FpController player;
 
 
 
-    private UnityEngine.AI.NavMeshAgent agent;
-    private Stats staInstance;
-    private FpController playerInstance;
-    private ScoreManager scoreManager;
-    private SpawnEffectManager spawnEffectManager;
-    private Animator animator;
-    private bool canMove = true;
+    [SerializeField] private Transform TelportPoint;
+    private Vector3 lastPlayerPosition;
+    private Quaternion lastPlayerRotation;
+    [SerializeField] private AudioSource song3;
 
-    private void Awake()
-    {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        animator = GetComponent<Animator>();
-    }
+    [SerializeField] private GameObject endVid;
     private void Start()
     {
-        staInstance = Stats.instance;
-        playerInstance = FpController.instance;
-        scoreManager = ScoreManager.instance;
-        spawnEffectManager = SpawnEffectManager.Instance;
-
-        playerPOS = playerInstance.gameObject.transform;
+        player = FpController.instance;
     }
 
 
-    private void Update()
+    public void TelportNow()
     {
-        float distance = Vector3.Distance(transform.position, playerPOS.position);
-        if (!agent.pathPending && distance > distanceToAttack && canMove)
-        {
-            agent.SetDestination(playerPOS.position);
-        }
-        else
-        {
-            animator.SetTrigger("Attack");
+        song3.Stop();
+        lastPlayerPosition = player.transform.position;
+        lastPlayerRotation = player.transform.rotation;
+        player.GetComponent<CharacterController>().enabled = false;
 
-        }
-    }
+        player.transform.position = TelportPoint.position;
+        PlaytheEnding();
+        player.GetComponent<CharacterController>().enabled = true;
 
-    private void AttackImpact()
-    {
-        Instantiate(hitImpact, impactEffectFeedback.gameObject.transform.position, impactEffectFeedback.gameObject.transform.rotation);
-        sphereHitbox.SetActive(true);
-
-    }
-
-    public void TakeDamage(float amount)
-    {
-        spawnEffectManager.AddHitMarkerEffect();
-        enemyHp -= amount;
-        if (enemyHp <= 0)
-        {
-            scoreManager.AddKillScore(killAmount);
-            spawnEffectManager.SpawnBloodBlastEffect(gameObject.transform);
-            end.TelportNow();
-
-            Destroy(gameObject);
-        }
-        else
-        {
-            scoreManager.AddHitScore(hitAmount);
-        }
 
     }
 
 
-
-
-    private void OnTriggerStay(Collider other)
+    private void PlaytheEnding()
     {
-        if (other.gameObject == playerInstance.gameObject)
-        {
-            staInstance.TakeDamage(20 * Time.deltaTime);
+        endVid.SetActive(true);
 
-        }
+        Invoke("GetThePlayerBack", 55);
+
+    }
+
+    // Here Get the player back to the point he was in 
+    private void GetThePlayerBack()
+    {
+        endVid.SetActive(false);
+
+        player.GetComponent<CharacterController>().enabled = false;
+        player.transform.position = lastPlayerPosition;
+        player.transform.rotation = lastPlayerRotation;
+        player.GetComponent<CharacterController>().enabled = true;
+
+
     }
 }
