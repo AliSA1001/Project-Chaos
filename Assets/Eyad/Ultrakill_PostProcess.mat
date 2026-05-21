@@ -46,6 +46,6 @@ Material:
     - _Vibrance: 1
     - _high_res: 1920
     m_Colors:
-    - _Tint: {r: 1, g: 0.848386, b: 0.8037736, a: 1}
+    - _Tint: {r: 1, g: 0.5180189, b: 0.3820755, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
