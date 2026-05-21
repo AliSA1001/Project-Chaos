@@ -7737,6 +7737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TelportPlayerToSavePlace
   TelportPoint: {fileID: 790492544}
+  song3: {fileID: 1367527453}
 --- !u!4 &387185942
 Transform:
   m_ObjectHideFlags: 0
@@ -8681,6 +8682,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &439311096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8928050953979157238, guid: 4db1ed83d121fde43903163a6094ef1f, type: 3}
+  m_PrefabInstance: {fileID: 979578565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &440290456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4059012203575615565, guid: ec72a25c7efd49649925373cd85f2617, type: 3}
@@ -27665,6 +27671,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1346150458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1658540226331612725, guid: 3139561aa0287524e80257ac58128fff, type: 3}
+  m_PrefabInstance: {fileID: 530296655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1346954393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9209309373514470823, guid: ec72a25c7efd49649925373cd85f2617, type: 3}
@@ -40183,6 +40194,18 @@ PrefabInstance:
       propertyPath: managedReferences[613369473331363957].TargetCanvasGroup
       value: 
       objectReference: {fileID: 788115339}
+    - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
+      propertyPath: lv0
+      value: 
+      objectReference: {fileID: 1410292138}
+    - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
+      propertyPath: lv1
+      value: 
+      objectReference: {fileID: 439311096}
+    - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
+      propertyPath: lv2
+      value: 
+      objectReference: {fileID: 1346150458}
     - target: {fileID: 4421667886876639997, guid: 1cd645f136f83ef44843eabdc1eb0079, type: 3}
       propertyPath: Song1
       value: 

@@ -47,6 +47,11 @@ public class SpawnEffectManager : MonoBehaviour
     [SerializeField] private AudioSource Song1;
     [SerializeField] private AudioSource Song2;
     [SerializeField] private AudioSource Song3;
+
+    [Header("Maps")]
+    [SerializeField] private GameObject lv0;
+    [SerializeField] private GameObject lv1;
+    [SerializeField] private GameObject lv2;
     public bool canScore { get; private set; }
 
 
@@ -65,6 +70,10 @@ public class SpawnEffectManager : MonoBehaviour
         InvokeRepeating("SpawnEnemiesSystem", 1, 1);
 
         Song1.Play();
+
+      //  lv0.SetActive(true);
+      //  lv1.SetActive(false);
+      //  lv2.SetActive(false);
 
     }
     private void Update()
@@ -124,6 +133,10 @@ public class SpawnEffectManager : MonoBehaviour
                 Song2.Play();
                 Song1.Stop();
                 Song3.Stop();
+
+               // lv0.SetActive(false);
+               // lv1.SetActive(true);
+               // lv2.SetActive(false);    
                 break;
 
             case 1:
@@ -138,6 +151,10 @@ public class SpawnEffectManager : MonoBehaviour
                 Song3.Play();
                 Song2.Stop();
                 Song1.Stop();
+
+               // lv0.SetActive(false);
+               // lv1.SetActive(false);
+               // lv2.SetActive(true);
                 break;
 
             case 2:
@@ -152,6 +169,10 @@ public class SpawnEffectManager : MonoBehaviour
                 Song1.Play();
                 Song2.Stop();
                 Song3.Stop();
+
+               // lv0.SetActive(true);
+               // lv1.SetActive(false);
+               // lv2.SetActive(false);
                 break;
 
         }

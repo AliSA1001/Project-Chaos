@@ -9,6 +9,7 @@ public class TelportPlayerToSavePlace : MonoBehaviour
     [SerializeField] private Transform TelportPoint;
     private Vector3 lastPlayerPosition;
     private Quaternion lastPlayerRotation;
+    [SerializeField] private AudioSource song3;
     private void Start()
     {
         player = FpController.instance;
@@ -17,6 +18,7 @@ public class TelportPlayerToSavePlace : MonoBehaviour
 
     public void TelportNow()
     {
+        song3.Stop();
         lastPlayerPosition = player.transform.position;
         lastPlayerRotation = player.transform.rotation;
         player.GetComponent<CharacterController>().enabled = false;
