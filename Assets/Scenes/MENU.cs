@@ -9,7 +9,12 @@ public class Menu : MonoBehaviour
     {
         
     }
+    private void Update()
+    {
+        Cursor.lockState = CursorLockMode.None;
 
+        Cursor.visible = true;
+    }
 
     public void StartGame()
 
