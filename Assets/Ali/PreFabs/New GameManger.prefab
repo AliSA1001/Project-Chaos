@@ -800,6 +800,9 @@ MonoBehaviour:
   map1: {fileID: 5118902861031854020}
   map2: {fileID: 7779122029800454672}
   telportFeedback: {fileID: 3794600547185014164}
+  zoneLighing0: {fileID: 0}
+  zoneLighing1: {fileID: 0}
+  zoneLighing2: {fileID: 0}
   enemiesType:
   - {fileID: 1700876697302410094, guid: e4bbeef6361e2de469cbc8f774ea6d30, type: 3}
   map0Points:
@@ -822,3 +825,9 @@ MonoBehaviour:
   newKillCount: 10
   getToThePortalTextGameObject: {fileID: 0}
   newkillcountText: {fileID: 0}
+  Song1: {fileID: 0}
+  Song2: {fileID: 0}
+  Song3: {fileID: 0}
+  lv0: {fileID: 0}
+  lv1: {fileID: 0}
+  lv2: {fileID: 0}

@@ -1,31 +1,22 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI; // 1. Required to access the Slider component
 using UnityEngine.SceneManagement;
 
-public class Stats : MonoBehaviour , IDamgeable
+public class Stats : MonoBehaviour, IDamgeable
 {
     public static Stats instance { get; private set; }
 
-
-
     [SerializeField] private float hp = 100;
-    [SerializeField] private float maxHp = 100;
-    [SerializeField] private float reHealSpeed;
+    private float maxHp; // 2. Keep track of the starting health for the slider's maximum
 
-    [SerializeField] private float timeToReheal;
-    [SerializeField] private float currentTime;
-
-
-
-
-
-    [Header("TMP REF HERE")]
+    [Header("UI References")]
     [SerializeField] private TMP_Text text_HP;
-
+    [SerializeField] private Slider hpSlider; // 3. The reference to your UI Slider
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -34,32 +25,45 @@ public class Stats : MonoBehaviour , IDamgeable
             Destroy(this);
         }
     }
-    public void TakeDamage(float amount)
+
+    private void Start()
     {
-        currentTime = 0;
-        hp -= amount;
-        // damage taken effect
-        bl_DamageScreen.UpdateHealth(Mathf.CeilToInt(hp), Mathf.RoundToInt(maxHp));
+        maxHp = hp; // Store the initial health
+
+        // Set up the slider's initial values
+        if (hpSlider != null)
+        {
+            hpSlider.maxValue = maxHp;
+            hpSlider.value = hp;
+        }
+
+        UpdateUI(); // Make sure the UI is correct right when the game starts
     }
 
-    private void Update()
+    public void TakeDamage(float amount)
     {
-        text_HP.text = hp.ToString();
+        hp -= amount;
+
+        UpdateUI(); // 4. Update the slider and text ONLY when health changes
+
         if (hp <= 0)
         {
             Debug.Log("you are dead");
             SceneManager.LoadScene(2);
         }
+    }
 
-        currentTime += Time.deltaTime;
-        if(currentTime > timeToReheal)
+    // A dedicated method to handle all UI updates
+    private void UpdateUI()
+    {
+        if (text_HP != null)
         {
-            hp += reHealSpeed * Time.deltaTime;
-
-            hp = Mathf.Min(hp, maxHp);
-            bl_DamageScreen.UpdateHealth(Mathf.CeilToInt(hp), Mathf.RoundToInt(maxHp));
-
+            text_HP.text = hp.ToString();
         }
 
+        if (hpSlider != null)
+        {
+            hpSlider.value = hp;
+        }
     }
 }

@@ -37,14 +37,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 1.5
+    - _Brightness: 2
     - _ColorDepth: 32
     - _Contrast: 1
     - _DitherThreshold: 0.4
-    - _EffectStrength: 0.369
-    - _Resolution: 720
+    - _EffectStrength: 0.529
+    - _Resolution: 1080
     - _Vibrance: 1
+    - _high_res: 1920
     m_Colors:
-    - _Tint: {r: 0.9716981, g: 0.6554379, b: 0.6554379, a: 1}
+    - _Tint: {r: 1, g: 0.848386, b: 0.8037736, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
