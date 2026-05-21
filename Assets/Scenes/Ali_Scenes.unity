@@ -11431,6 +11431,7 @@ GameObject:
   - component: {fileID: 608002372}
   - component: {fileID: 608002374}
   - component: {fileID: 608002375}
+  - component: {fileID: 608002376}
   m_Layer: 0
   m_Name: CutsceneManager
   m_TagString: Untagged
@@ -11593,6 +11594,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &608002376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608002371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5a466af2fc2a744a1aaa048f964b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StopTime
 --- !u!1 &608378822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6143961226327994813, guid: ec72a25c7efd49649925373cd85f2617, type: 3}
