@@ -10,6 +10,8 @@ public class TelportPlayerToSavePlace : MonoBehaviour
     private Vector3 lastPlayerPosition;
     private Quaternion lastPlayerRotation;
     [SerializeField] private AudioSource song3;
+
+    [SerializeField] private GameObject endVid;
     private void Start()
     {
         player = FpController.instance;
@@ -24,17 +26,26 @@ public class TelportPlayerToSavePlace : MonoBehaviour
         player.GetComponent<CharacterController>().enabled = false;
 
         player.transform.position = TelportPoint.position;
-        // here we will play the vid 
-
+        PlaytheEnding();
         player.GetComponent<CharacterController>().enabled = true;
 
-        Invoke("GetThePlayerBack", 3);
+      
     }
 
+
+    private void PlaytheEnding()
+    {
+        endVid.SetActive(true);
+
+        Invoke("GetThePlayerBack", 55);
+
+    }
 
     // Here Get the player back to the point he was in 
     private void GetThePlayerBack()
     {
+        endVid.SetActive(false);
+
         player.GetComponent<CharacterController>().enabled = false;
         player.transform.position = lastPlayerPosition;
         player.transform.rotation = lastPlayerRotation;
